@@ -17,6 +17,8 @@
     <li><a href="#career">Career</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#activities">Activities</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
   </ul>
 </nav>
 
@@ -24,32 +26,34 @@
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <div class="hero">
+    <!-- 배경 파티클 캔버스 -->
+    <canvas id="hero-canvas"></canvas>
     <div class="hero-bg-circle"></div>
     <div class="hero-bg-ring"></div>
-    <div style="display:flex;gap:40px;align-items:flex-start;">
+    <div style="display:flex;gap:40px;align-items:flex-start;position:relative;z-index:2;">
       <div style="flex:1;">
-        <div class="hero-eyebrow">UX Planner · Service Designer</div>
-        <h1>복잡한<br><em>이동과 선택</em> <br>단순하게 만듭니다</h1>
-        <p class="hero-desc">
+        <div class="hero-eyebrow hero-anim" style="--d:0s">UX Planner · Service Designer</div>
+        <h1 class="hero-anim" style="--d:0.15s">복잡한<br><em>이동과 선택</em><br>단순하게 만듭니다</h1>
+        <p class="hero-desc hero-anim" style="--d:0.3s">
           문제를 발견하는 것에서 멈추지 않고,<br/>
-          데이터를 통해 구조를 설계하고 실제 서비스로 구현해온 <B>UX 기획자 양새봄</B>입니다.<br/>
+          데이터를 통해 구조를 설계하고 실제 서비스로 구현해온 <b>UX 기획자 양새봄</b>입니다.<br/>
           인터뷰와 리서치를 통해 사용자 경험을 정의하고 <br>
           IA 설계부터 기능 명세서 작성, QA, 런칭까지의 과정을 주도적으로 수행해왔습니다.
         </p>
       </div>
-      <div class="hero-profile">
+      <div class="hero-profile hero-profile-anim">
         <img src="resource/프로필.jpg" alt="프로필"/>
       </div>
     </div>
-    <div class="chip-row">
+    <div class="chip-row hero-anim" style="--d:0.45s;position:relative;z-index:2;">
       <span class="chip">User Research</span><span class="chip">IA · Flowchart</span><span class="chip">Wireframe</span>
       <span class="chip">Prototyping</span><span class="chip">Usability Test</span><span class="chip">QA</span>
       <span class="chip">Figma</span><span class="chip">Data-driven</span>
     </div>
-    <div class="stat-row">
-      <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">서비스 런칭 경험</div></div>
-      <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">수상 경력</div></div>
-      <div class="stat-item"><div class="stat-num">438%</div><div class="stat-label">가입자 수 최대 증가</div></div>
+    <div class="stat-row hero-anim" style="--d:0.6s;position:relative;z-index:2;">
+      <div class="stat-item"><div class="stat-num" data-target="5" data-suffix="+">0</div><div class="stat-label">서비스 런칭 경험</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="3" data-suffix="">0</div><div class="stat-label">수상 경력</div></div>
+      <div class="stat-item"><div class="stat-num" data-target="438" data-suffix="%">0</div><div class="stat-label">가입자 수 최대 증가</div></div>
     </div>
   </div>
 
@@ -67,9 +71,39 @@
       </table>
     </div>
     <div style="margin-top:24px;">
-      <div class="award-card"><div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안</div></div><span class="pill pill-orange">🏅 장려상</span></div>
-      <div class="award-card"><div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 스마트홈 제품 서비스 'Pairy' 기획</div></div><span class="pill pill-green">🥈 우수상</span></div>
-      <div class="award-card"><div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 우유 소비자 락인 마케팅 전략 기획</div></div><span class="pill pill-purple">🥉 동상</span></div>
+      <div class="award-card">
+        <div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안</div></div>
+        <span class="pill pill-orange">🏅 장려상</span>
+        <div class="award-popup">
+          <div class="award-popup-row"><span class="award-popup-label">주최기관</span><span>행정안전부</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">수상</span><span>장려상</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">일시</span><span>2023.07.25.</span></div>
+          <div class="award-popup-divider"></div>
+          <p class="award-popup-desc">AR과 색상을 활용해 공연장 관객 밀집을 예방하고 안전한 이동을 돕는 '컬러 딜리버리, AR을 통한 안전한 이동'을 제안했습니다. 관객이 지정된 색상 구역과 AR 안내를 따라 이동하도록 설계하여, 입장과 퇴장 시 혼잡을 줄이고 안전 거리를 유지할 수 있도록 했습니다. 또한 실시간 관객 분포 데이터를 기반으로 펜스 색상 안내를 최적화하고 사용자 경험과 안전성을 동시에 고려한 솔루션으로 구체화했습니다.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 스마트홈 제품 서비스 'Pairy' 기획</div></div>
+        <span class="pill pill-green">🥈 우수상</span>
+        <div class="award-popup">
+          <div class="award-popup-row"><span class="award-popup-label">주최기관</span><span>한국디자인학회</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">수상</span><span>우수상</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">일시</span><span>2023.10.28.</span></div>
+          <div class="award-popup-divider"></div>
+          <p class="award-popup-desc">청년 1인 가구의 외로움을 해소하기 위해 AI 서비스 'Pairy'를 기획했습니다. 사용자의 감정과 상황을 분석해 맞춤형 대화와 활동을 제안함으로써 정서적 공백을 채우고 친밀감을 형성하도록 설계했습니다. 또한 초기 사용자 피드백과 설문조사를 반영해 대화 흐름과 기능을 지속적으로 개선하며 사람 중심의 경험을 제공하는 서비스를 구현했습니다.</p>
+        </div>
+      </div>
+      <div class="award-card">
+        <div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 우유 소비자 락인 마케팅 전략 기획</div></div>
+        <span class="pill pill-purple">🥉 동상</span>
+        <div class="award-popup">
+          <div class="award-popup-row"><span class="award-popup-label">주최기관</span><span>우유자조금위원회</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">수상</span><span>동상</span></div>
+          <div class="award-popup-row"><span class="award-popup-label">일시</span><span>2024.06.22.</span></div>
+          <div class="award-popup-divider"></div>
+          <p class="award-popup-desc">우유 소비가 감소하는 사회적 상황 속에서 소비자에게 즐거움을 제공하고 브랜드 충성도를 높이는 전략을 기획했습니다. "We will Lock You"를 컨셉으로 활용한 락인 마케팅 전략을 수립하고, 우유 커스텀 패키징 아이디어와 팝업 스토어 콘셉트를 제안하며 소비자 경험과 브랜드 경험이 자연스럽게 연결되도록 기획안을 구성했습니다.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -77,7 +111,10 @@
   <div class="section" id="career">
     <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Career</h2><div class="section-line"></div></div>
     <div class="career-card">
-      <div class="career-top"><div><div class="career-co">파소갤러리</div><div class="career-role">산학연계 인턴 · 디자이너</div></div><div class="career-period">2023.09 — 2024.07</div></div>
+      <div class="career-top">
+        <div class="career-info"><div class="career-co">파소갤러리</div><div class="career-role">산학연계 인턴 · 디자이너</div></div>
+        <div class="career-period">2023.09 — 2024.07</div>
+      </div>
       <div class="career-body"><ul class="dot">
         <li>갤러리 브랜드 경험 강화를 위한 홈페이지 기획 및 디자인</li>
         <li>전시 콘셉트와 일관된 브랜딩 서비스 기획 및 홍보물 제작</li>
@@ -86,7 +123,10 @@
       </ul></div>
     </div>
     <div class="career-card">
-      <div class="career-top"><div><div class="career-co">티오에스코리아</div><div class="career-role">나이스평가정보 디지털사업실 · UX 기획 매니저</div></div><div class="career-period">2024.09 — 현재</div></div>
+      <div class="career-top">
+        <div class="career-info"><div class="career-co">티오에스코리아</div><div class="career-role">나이스평가정보 디지털사업실 · UX 기획 매니저</div></div>
+        <div class="career-period">2024.09 — 현재</div>
+      </div>
       <div class="career-body">
         <div class="career-note">카드사 GDN 가입 페이지 UX/UI 총괄 <br/> 스토리보드 작성, 사용성 테스트, QA, 유지보수, 디지털 마케팅 성과 분석까지 UX 기획 전 과정 수행</div>
         <ul class="dot">
@@ -214,14 +254,99 @@
       <div class="activity-card"><div class="act-top"><div class="act-icon">🎨</div><div class="act-name">SID (Social Impact Designers) 6기 — 아트팀</div></div><div class="act-period">2021.03 — 2022.12</div><div class="act-desc">발달장애인 아트 클래스 기획 및 운영 <br/> 전시회 기획 및 개최 <br/> 펀딩 기획 및 홍보</div></div>
       <div class="activity-card"><div class="act-top"><div class="act-icon">📰</div><div class="act-name">학과지위원회 PIEMAKER — 기획국장</div></div><div class="act-period">2023.02 — 2024.03</div><div class="act-desc">학과지 컨셉 및 콘텐츠 기획 총괄 <br/> 제작 프로세스 관리 <br/> 학과지 아이덴티티 설계</div></div>
       <div class="activity-card"><div class="act-top"><div class="act-icon">🌍</div><div class="act-name">2024 HULT PRIZE 성신 운영진 — 대외협력팀</div></div><div class="act-period">2023.09 — 2024.03</div><div class="act-desc">외부 기관 및 기업 협력 관리 <br/> 참가자 모집 및 홍보 <br/> 협력사 소통 및 운영 효율화</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산물 및 건어물 시장 현장답사, UX 분석에 따른 개선안 도출 <br/> 점포 운영 효율성 및 고객 만족도 향상 방안 제안 <br/> 동선 및 운영 흐름에 따른 점포 매대, 포장 용기 디자인, 가격표 개선</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산물 및 건어물 시장 현장답사, UX 분석에 따른 개선안 도출 <br/> 점포 운영 효율성 및 고객 만족도 향상 방안 제안 <br/> 동선과 운영 흐름에 따른 매대, 포장 용기 디자인, 가격표 개선</div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 05 SKILLS ═══════════════ -->
+  <div class="section" id="skills">
+    <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Skills</h2><div class="section-line"></div></div>
+    <div class="skill-grid">
+      <div class="skill-card">
+        <div class="skill-card-title">UX 기획</div>
+        <div class="skill-tags">
+          <span class="stag hi">IA 설계</span><span class="stag hi">UX 리서치</span><span class="stag hi">기능명세서</span>
+          <span class="stag hi">플로우차트</span><span class="stag hi">사용성 테스트</span><span class="stag hi">QA</span>
+          <span class="stag hi">서비스 기획</span><span class="stag md">데이터 분석</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">디자인</div>
+        <div class="skill-tags">
+          <span class="stag hi">Figma</span><span class="stag md">Photoshop</span><span class="stag md">Illustrator</span>
+          <span class="stag md">InDesign</span><span class="stag md">Midjourney</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">협업 · 문서</div>
+        <div class="skill-tags">
+          <span class="stag hi">Notion</span><span class="stag hi">PowerPoint</span><span class="stag hi">Excel</span>
+          <span class="stag hi">Slack</span><span class="stag hi">Confluence</span><span class="stag md">Jira</span><span class="stag md">GA</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">AI</div>
+        <div class="skill-tags">
+          <span class="stag hi">Claude</span><span class="stag hi">GPT</span><span class="stag hi">Gemini</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">개발</div>
+        <div class="skill-tags">
+          <span class="stag md">HTML</span><span class="stag md">CSS</span><span class="stag md">Python</span>
+          <span class="stag md">JAVA</span><span class="stag lo">C++</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-title">리서치 방법론</div>
+        <div class="skill-tags">
+          <span class="stag hi">심층 인터뷰</span><span class="stag hi">설문조사</span><span class="stag hi">Probe 조사</span>
+          <span class="stag hi">페르소나</span><span class="stag hi">저니맵</span><span class="stag hi">KANO 모델</span>
+        </div>
+      </div>
+    </div>
+    <div class="skill-legend">
+      <span class="sleg"><span class="stag hi" style="font-size:11px;padding:1px 8px;">상</span> 실무 활용</span>
+      <span class="sleg"><span class="stag md" style="font-size:11px;padding:1px 8px;">중</span> 기본 활용</span>
+      <span class="sleg"><span class="stag lo" style="font-size:11px;padding:1px 8px;">하</span> 기초 이해</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ 06 EDUCATION ═══════════════ -->
+  <div class="section" id="education">
+    <div class="section-header"><span class="section-num">06</span><h2 class="section-title">Education</h2><div class="section-line"></div></div>
+    <div class="edu-card">
+      <div class="edu-top">
+        <div class="edu-left">
+          <span class="edu-badge">대학교</span>
+          <div class="edu-school">성신여자대학교</div>
+          <div class="edu-major">주전공 · 서비스디자인공학과 <span class="edu-track">서비스/UX 디자인 트랙 이수</span></div>
+          <div class="edu-major" style="margin-top:4px;">복수전공 · 미디어커뮤니케이션학과</div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-period">2020.03 — 2025.02</div>
+          <div class="edu-gpa">학점 <strong>3.98</strong><span class="edu-gpa-max"> / 4.5</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="edu-card" style="margin-top:10px;">
+      <div class="edu-top">
+        <div class="edu-left">
+          <span class="edu-badge edu-badge-gray">고등학교</span>
+          <div class="edu-school">효양고등학교</div>
+          <div class="edu-major">인문계</div>
+        </div>
+        <div class="edu-right">
+          <div class="edu-period">2017.03 — 2020.01</div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- ═══════════════ FOOTER ═══════════════ -->
   <div class="footer">
     <div class="footer-logo">양새봄 · UX Planner</div>
-    <div class="footer-info">📩 dnflwlq7379@naver.com<br/>📞 010-3389-6353<br/><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
+    <div class="footer-info">📩 <a href="mailto:dnflwlq7379@naver.com">dnflwlq7379@naver.com</a><br/>📞 010-3389-6353<br/><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
   </div>
 
 </div><!-- /page -->

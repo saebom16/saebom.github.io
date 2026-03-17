@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
    main.js — 양새봄 · UX Planner Portfolio
-   프로젝트 모달 + 이미지 라이트박스 슬라이더
+   모달 + 라이트박스 + Hero 모션
    ═══════════════════════════════════════ */
 
 /* ─── 프로젝트 모달 ─── */
@@ -12,7 +12,6 @@ function openModal(id) {
     document.body.style.overflow = 'hidden';
   }
 }
-
 function closeModal(id) {
   const target = document.getElementById('modal-' + id);
   if (target) {
@@ -22,29 +21,21 @@ function closeModal(id) {
 }
 
 /* ─── 라이트박스 슬라이더 ─── */
-let lbImages = [];   // 현재 갤러리 이미지 src 배열
-let lbIndex  = 0;    // 현재 보여지는 인덱스
-
-const lb        = document.getElementById('lightbox');
-const lbImg     = document.getElementById('lb-img');
+let lbImages = [], lbIndex = 0;
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
 const lbCounter = document.getElementById('lb-counter');
 
 function openLightbox(imgs, startIndex) {
-  lbImages = imgs;
-  lbIndex  = startIndex;
+  lbImages = imgs; lbIndex = startIndex;
   renderLb();
   lb.classList.add('open');
   document.body.style.overflow = 'hidden';
 }
-
 function closeLightbox() {
   lb.classList.remove('open');
-  // 모달이 열려 있으면 scroll 복구 안함
-  if (!document.querySelector('.modal-overlay.open')) {
-    document.body.style.overflow = '';
-  }
+  if (!document.querySelector('.modal-overlay.open')) document.body.style.overflow = '';
 }
-
 function renderLb() {
   lbImg.classList.add('fade');
   setTimeout(() => {
@@ -53,18 +44,94 @@ function renderLb() {
     lbImg.classList.remove('fade');
   }, 120);
 }
+function lbPrev() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; renderLb(); }
+function lbNext() { lbIndex = (lbIndex + 1) % lbImages.length; renderLb(); }
 
-function lbPrev() {
-  lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length;
-  renderLb();
+/* ─── 숫자 카운트업 ─── */
+function countUp(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1600;
+  const step = 16;
+  const increment = target / (duration / step);
+  let current = 0;
+  const timer = setInterval(() => {
+    current += increment;
+    if (current >= target) {
+      el.textContent = target + suffix;
+      clearInterval(timer);
+    } else {
+      el.textContent = Math.floor(current) + suffix;
+    }
+  }, step);
 }
 
-function lbNext() {
-  lbIndex = (lbIndex + 1) % lbImages.length;
-  renderLb();
+/* ─── 배경 파티클 (Canvas) ─── */
+function initParticles() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H, particles;
+
+  function resize() {
+    W = canvas.width  = canvas.offsetWidth;
+    H = canvas.height = canvas.offsetHeight;
+  }
+
+  function createParticles() {
+    particles = [];
+    const count = Math.floor(W / 18);
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        r: Math.random() * 2.4 + 0.6,
+        dx: (Math.random() - 0.5) * 0.35,
+        dy: (Math.random() - 0.5) * 0.35,
+        alpha: Math.random() * 0.35 + 0.08
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+    particles.forEach(p => {
+      // 파티클 이동
+      p.x += p.dx; p.y += p.dy;
+      if (p.x < 0) p.x = W;
+      if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H;
+      if (p.y > H) p.y = 0;
+
+      // 원 그리기
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(253, 89, 86, ${p.alpha})`;
+      ctx.fill();
+
+      // 가까운 파티클끼리 선 연결
+      particles.forEach(q => {
+        const dist = Math.hypot(p.x - q.x, p.y - q.y);
+        if (dist < 90) {
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(q.x, q.y);
+          ctx.strokeStyle = `rgba(91,127,166,${0.07 * (1 - dist / 90)})`;
+          ctx.lineWidth = 0.6;
+          ctx.stroke();
+        }
+      });
+    });
+    requestAnimationFrame(draw);
+  }
+
+  resize();
+  createParticles();
+  draw();
+  window.addEventListener('resize', () => { resize(); createParticles(); });
 }
 
-/* ─── 초기화 (DOM 준비 후) ─── */
+/* ─── DOM 초기화 ─── */
 document.addEventListener('DOMContentLoaded', () => {
 
   /* 오버레이 바깥 클릭 → 모달 닫기 */
@@ -77,22 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* 각 .project-gallery 에 슬라이더 바인딩 */
+  /* 갤러리 라이트박스 바인딩 */
   document.querySelectorAll('.project-gallery').forEach(gallery => {
     const imgs = Array.from(gallery.querySelectorAll('img'));
-    const srcs = imgs.map(img => img.src);          // 절대 경로로 수집
-
+    const srcs = imgs.map(img => img.src);
     imgs.forEach((img, i) => {
-      img.removeAttribute('onclick');               // 기존 onclick 제거
+      img.removeAttribute('onclick');
       img.style.cursor = 'pointer';
       img.addEventListener('click', () => openLightbox(srcs, i));
     });
   });
 
-  /* 라이트박스 배경 클릭 → 닫기 */
-  lb.addEventListener('click', e => {
-    if (e.target === lb) closeLightbox();
-  });
+  /* 라이트박스 배경 클릭 닫기 */
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 
   /* 키보드 조작 */
   document.addEventListener('keydown', e => {
@@ -101,4 +165,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'ArrowRight') lbNext();
     if (e.key === 'Escape')     closeLightbox();
   });
+
+  /* 파티클 시작 */
+  initParticles();
+
+  /* 카운트업 — stat-num이 화면에 보일 때 실행 */
+  const statNums = document.querySelectorAll('.stat-num[data-target]');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        countUp(entry.target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statNums.forEach(el => observer.observe(el));
 });
