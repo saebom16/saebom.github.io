@@ -7,9 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --cream:#FAF8F4; --ink:#1C1917; --ink-light:#44403C; --muted:#A8A29E;
+  --cream:#FAF8F4; --ink:#1C1917; --ink-light:#44403C; --muted:#797979;
   --border:#E7E5E4; --surface:#F5F3EF; --white:#ffffff;
-  --accent:#D97757; --accent2:#5B7FA6; --accent3:#6B8F71;
+  --accent:#FD5956; --accent2:#5B7FA6; --accent3:#6B8F71;
   --s1bg:#FFF3ED;--s1c:#C2410C; --s2bg:#EEF4FB;--s2c:#1D4ED8;
   --s3bg:#F0FDF4;--s3c:#15803D; --s4bg:#F5F3FF;--s4c:#6D28D9;
   --s5bg:#FFFBEB;--s5c:#92400E; --s6bg:#FFF1F2;--s6c:#BE185D;
@@ -23,7 +23,7 @@ body{font-family:'Noto Sans KR',sans-serif;background:var(--cream);color:var(--i
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(250,248,244,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 40px;z-index:200;justify-content:space-between;}
-.nav-logo{font-family:'Fraunces',serif;font-size:16px;color:var(--ink);}
+.nav-logo{font-family:'noto sans';font-size:16px;color:var(--ink);}
 .nav-links{display:flex;gap:28px;list-style:none;}
 .nav-links a{font-size:11px;color:var(--muted);text-decoration:none;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;}
 .nav-links a:hover{color:var(--ink);}
@@ -36,7 +36,7 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(250,248,244,
 .hero-bg-ring{position:absolute;right:140px;top:-10px;width:90px;height:90px;border-radius:50%;border:1.5px dashed var(--muted);opacity:0.35;pointer-events:none;}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
-.hero h1{font-family:'Fraunces',serif;font-size:52px;font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px;}
+.hero h1{font-family:'noto sans';font-size:52px;font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px;}
 .hero h1 em{font-style:italic;color:var(--accent);}
 .hero-desc{font-size:15px;color:var(--ink-light);max-width:500px;margin-bottom:32px;line-height:1.85;}
 .chip-row{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:36px;}
@@ -45,26 +45,26 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(250,248,244,
 .stat-row{display:flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--white);}
 .stat-item{flex:1;padding:18px 20px;border-right:1px solid var(--border);text-align:center;}
 .stat-item:last-child{border-right:none;}
-.stat-num{font-family:'Fraunces',serif;font-size:26px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;}
+.stat-num{font-family:'noto sans';font-size:26px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;}
 .stat-label{font-size:11px;color:var(--muted);line-height:1.4;}
 
 /* SECTION */
 .section{margin-bottom:72px;}
 .section-header{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
 .section-num{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:0.06em;}
-.section-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;letter-spacing:-0.3px;}
+.section-title{font-family:'noto sans';font-size:22px;font-weight:700;letter-spacing:-0.3px;}
 .section-line{flex:1;height:1px;background:var(--border);}
 
 /* TABLE */
 .table-wrap{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);margin-bottom:14px;}
-table{width:100%;border-collapse:collapse;font-size:13px;}
-th{background:var(--surface);padding:10px 16px;text-align:left;font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border);}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{background:var(--surface);padding:10px 16px;text-align:left;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;border-bottom:1px solid var(--border);}
 td{padding:12px 16px;border-bottom:1px solid var(--border);vertical-align:middle;color:var(--ink-light);}
 tr:last-child td{border-bottom:none;}
 .cert-name{font-weight:600;color:var(--ink);}
 
 /* PILL */
-.pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:100px;font-size:11px;font-weight:600;}
+.pill{display:inline-flex;align-items:center;padding:2px 10px;border-radius:100px;font-size:12px;font-weight:600;}
 .pill-orange{background:#FFF3ED;color:#C2410C;border:1px solid #FED7AA;}
 .pill-green{background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0;}
 .pill-blue{background:#EFF6FF;color:#1D4ED8;border:1px solid #BFDBFE;}
@@ -74,21 +74,21 @@ tr:last-child td{border-bottom:none;}
 /* AWARD */
 .award-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:18px 22px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;transition:transform 0.15s,box-shadow 0.15s;}
 .award-card:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,0.06);}
-.award-name{font-weight:700;font-size:14px;margin-bottom:3px;}
-.award-org{font-size:11px;color:var(--muted);margin-bottom:6px;}
-.award-desc{font-size:12px;color:var(--ink-light);line-height:1.7;}
+.award-name{font-weight:700;font-size:16px;margin-bottom:3px;}
+.award-org{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.award-desc{font-size:14px;color:var(--ink-light);line-height:1.7;}
 
 /* CAREER */
 .career-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:12px;transition:box-shadow 0.2s;}
 .career-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07);}
 .career-top{padding:18px 24px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;}
-.career-co{font-family:'Fraunces',serif;font-size:17px;font-weight:700;}
-.career-role{font-size:12px;color:var(--muted);margin-top:2px;}
-.career-period{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);}
+.career-co{font-family:'noto sans';font-size:17px;font-weight:700;}
+.career-role{font-size:14px;color:var(--muted);margin-top:2px;}
+.career-period{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);}
 .career-body{padding:18px 24px;}
-.career-note{font-size:13px;color:var(--ink-light);line-height:1.8;padding:12px 16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent2);margin-bottom:14px;}
+.career-note{font-size:14px;color:var(--ink-light);line-height:1.8;padding:12px 16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent2);margin-bottom:14px;}
 ul.dot{list-style:none;}
-ul.dot li{font-size:12.5px;color:var(--ink-light);padding:3px 0 3px 14px;position:relative;line-height:1.7;}
+ul.dot li{font-size:14px;color:var(--ink-light);padding:3px 0 3px 14px;position:relative;line-height:1.7;}
 ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);font-weight:700;}
 
 /* PROJECT GRID */
@@ -96,26 +96,27 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 .pcard{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;}
 .pcard:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,0.1);}
 .pcard-bar{height:4px;}
-.bar-o{background:linear-gradient(90deg,#D97757,#FDBA8C);}
+.bar-o{background:linear-gradient(90deg,#FD5956,#FDBA8C);}
 .bar-b{background:linear-gradient(90deg,#5B7FA6,#93C5FD);}
 .bar-g{background:linear-gradient(90deg,#6B8F71,#86EFAC);}
 .bar-p{background:linear-gradient(90deg,#7C5FBF,#D8B4FE);}
 .bar-y{background:linear-gradient(90deg,#D97706,#FCD34D);}
+.bar-r{background:linear-gradient(90deg,#d906ce,#fd77c58c);}
 .pcard-body{padding:20px 22px;}
 .pcard-emoji{font-size:28px;margin-bottom:10px;display:block;}
-.pcard-name{font-family:'Fraunces',serif;font-size:18px;font-weight:700;letter-spacing:-0.2px;margin-bottom:3px;}
-.pcard-sub{font-size:11px;color:var(--muted);margin-bottom:12px;}
-.pcard-desc{font-size:12.5px;color:var(--ink-light);line-height:1.75;margin-bottom:14px;}
+.pcard-name{font-family:'noto sans';font-size:18px;font-weight:700;letter-spacing:-0.2px;margin-bottom:3px;}
+.pcard-sub{font-size:13px;color:var(--muted);margin-bottom:12px;}
+.pcard-desc{font-size:14px;color:var(--ink-light);line-height:1.75;margin-bottom:14px;}
 .pcard-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px;}
 .tag{background:var(--surface);color:var(--ink-light);padding:3px 9px;border-radius:4px;font-size:11px;font-weight:500;border:1px solid var(--border);}
 .pcard-footer{display:flex;justify-content:space-between;align-items:center;padding-top:14px;border-top:1px solid var(--border);}
-.pcard-period{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);}
-.pcard-btn{font-size:11px;font-weight:700;color:var(--accent);letter-spacing:0.04em;display:flex;align-items:center;gap:4px;transition:gap 0.2s;}
+.pcard-period{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);}
+.pcard-btn{font-size:12px;font-weight:700;color:var(--accent);letter-spacing:0.04em;display:flex;align-items:center;gap:4px;transition:gap 0.2s;}
 .pcard:hover .pcard-btn{gap:8px;}
 .pcard-kpi{display:flex;gap:8px;margin-bottom:14px;}
 .kpi-mini{background:var(--surface);border-radius:6px;padding:7px 10px;text-align:center;}
-.kpi-mini-num{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--accent);line-height:1;}
-.kpi-mini-label{font-size:9px;color:var(--muted);margin-top:2px;}
+.kpi-mini-num{font-family:'noto sans';font-size:15px;font-weight:700;color:var(--accent);line-height:1;}
+.kpi-mini-label{font-size:11px;color:var(--muted);margin-top:2px;}
 
 /* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(28,25,23,0.55);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;opacity:0;pointer-events:none;transition:opacity 0.25s;}
@@ -132,28 +133,28 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 /* modal hero */
 .modal-bar{height:4px;border-radius:2px;margin-bottom:24px;}
 .modal-emoji{font-size:36px;margin-bottom:12px;display:block;}
-.modal-title{font-family:'Fraunces',serif;font-size:30px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
-.modal-subtitle{font-size:13px;color:var(--muted);margin-bottom:14px;}
+.modal-title{font-family:'noto sans';font-size:30px;font-weight:700;letter-spacing:-0.5px;margin-bottom:4px;}
+.modal-subtitle{font-size:15px;color:var(--muted);margin-bottom:14px;}
 .modal-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
-.modal-quote{font-size:13.5px;color:var(--ink-light);line-height:1.85;padding:16px 20px;background:var(--surface);border-radius:10px;border-left:3px solid var(--accent);font-style:italic;margin-bottom:24px;}
+.modal-quote{font-size:15px;color:var(--ink-light);line-height:1.85;padding:16px 20px;background:var(--surface);border-radius:10px;border-left:3px solid var(--accent);margin-bottom:24px;}
 
 /* modal meta */
 .modal-meta{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:10px;overflow:hidden;background:var(--white);margin-bottom:28px;}
 .meta-item{padding:12px 16px;border-right:1px solid var(--border);}
 .meta-item:last-child{border-right:none;}
-.meta-key{font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
-.meta-val{font-size:13px;font-weight:600;color:var(--ink);}
+.meta-key{font-size:14px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.meta-val{font-size:15px;font-weight:600;color:var(--ink);}
 
 /* modal divider */
 .modal-divider{height:1px;background:var(--border);margin:28px 0;}
 
 /* section label inside modal */
-.m-section-label{font-family:'Space Mono',monospace;font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.m-section-label{font-family:'Space Mono',monospace;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .m-section-label::after{content:'';flex:1;height:1px;background:var(--border);}
 
 /* process flow */
 .process-flow{display:flex;align-items:center;gap:4px;flex-wrap:wrap;margin-bottom:16px;}
-.pf{padding:6px 12px;border-radius:6px;font-size:11px;font-weight:700;}
+.pf{padding:6px 12px;border-radius:6px;font-size:12px;font-weight:700;}
 .pf-arr{color:var(--muted);font-size:11px;}
 .pf1{background:var(--s1bg);color:var(--s1c);}
 .pf2{background:var(--s2bg);color:var(--s2c);}
@@ -166,38 +167,38 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 .step-rows{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:20px;}
 .step-row{display:flex;border-bottom:1px solid var(--border);}
 .step-row:last-child{border-bottom:none;}
-.step-label{width:92px;flex-shrink:0;padding:14px 12px;font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-right:1px solid var(--border);display:flex;align-items:flex-start;gap:4px;line-height:1.4;}
+.step-label{width:92px;flex-shrink:0;padding:14px 12px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;border-right:1px solid var(--border);display:flex;align-items:flex-start;gap:4px;line-height:1.4;}
 .sl1{background:var(--s1bg);color:var(--s1c);}
 .sl2{background:var(--s2bg);color:var(--s2c);}
 .sl3{background:var(--s3bg);color:var(--s3c);}
 .sl4{background:var(--s4bg);color:var(--s4c);}
 .sl5{background:var(--s5bg);color:var(--s5c);}
 .sl6{background:var(--s6bg);color:var(--s6c);}
-.step-content{flex:1;padding:14px 16px;font-size:12.5px;color:var(--ink-light);line-height:1.8;background:var(--white);}
+.step-content{flex:1;padding:14px 16px;font-size:14px;color:var(--ink-light);line-height:1.8;background:var(--white);}
 .step-content strong{color:var(--ink);}
 
 /* kpi row */
 .kpi-row{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
 .kpi-card{flex:1;min-width:110px;background:var(--ink);border-radius:10px;padding:16px 18px;text-align:center;}
-.kpi-num{font-family:'Fraunces',serif;font-size:24px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;}
-.kpi-label{font-size:10px;color:rgba(255,255,255,0.5);line-height:1.4;}
+.kpi-num{font-family:'noto sans';font-size:24px;font-weight:700;color:var(--accent);line-height:1;margin-bottom:4px;}
+.kpi-label{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.4;}
 
 /* ── COMPETENCY MAP (핵심 추가) ── */
 .comp-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px;}
 .comp-card{background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
 .comp-card-header{padding:10px 14px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);}
-.comp-badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap;}
+.comp-badge{font-size:13px;font-weight:700;padding:3px 9px;border-radius:100px;white-space:nowrap;}
 .cb-research{background:#EEF4FB;color:#1D4ED8;border:1px solid #BFDBFE;}
-.cb-story{background:#FFF3ED;color:#C2410C;border:1px solid #FED7AA;}
+.cb-story{background:#FFF3ED;color:#FD5956;border:1px solid #FED7AA;}
 .cb-concept{background:#F5F3FF;color:#6D28D9;border:1px solid #DDD6FE;}
 .cb-ia{background:#F0FDF4;color:#15803D;border:1px solid #BBF7D0;}
 .cb-design{background:#FFF1F2;color:#BE185D;border:1px solid #FBCFE8;}
 .cb-qa{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A;}
-.comp-card-body{padding:12px 14px;font-size:12px;color:var(--ink-light);line-height:1.75;}
+.comp-card-body{padding:12px 14px;font-size:14px;color:var(--ink-light);line-height:1.75;}
 .comp-card-body strong{color:var(--ink);}
 
 /* result / insight box */
-.result-box{background:linear-gradient(135deg,#F0FDF4,#EFF6FF);border:1px solid #BBF7D0;border-radius:10px;padding:14px 18px;font-size:12.5px;color:#166534;display:flex;align-items:flex-start;gap:10px;line-height:1.75;margin-bottom:12px;}
+.result-box{background:linear-gradient(135deg,#F0FDF4,#EFF6FF);border:1px solid #BBF7D0;border-radius:12px;padding:14px 18px;font-size:14px;color:#166534;display:flex;align-items:flex-start;gap:10px;line-height:1.75;margin-bottom:12px;}
 
 /* ACTIVITY */
 .activity-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -205,13 +206,13 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 .activity-card:hover{box-shadow:0 3px 12px rgba(0,0,0,0.06);}
 .act-top{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
 .act-icon{width:30px;height:30px;border-radius:7px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
-.act-name{font-weight:700;font-size:13px;line-height:1.3;}
-.act-period{font-family:'Space Mono',monospace;font-size:10px;color:var(--muted);margin-bottom:6px;}
-.act-desc{font-size:12px;color:var(--ink-light);line-height:1.7;}
+.act-name{font-weight:700;font-size:16px;line-height:1.3;}
+.act-period{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:6px;}
+.act-desc{font-size:14px;color:var(--ink-light);line-height:1.7;}
 
 /* FOOTER */
 .footer{border-top:1px solid var(--border);padding-top:36px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-.footer-logo{font-family:'Fraunces',serif;font-size:18px;font-weight:700;}
+.footer-logo{font-family:'noto sans';font-size:18px;font-weight:700;}
 .footer-info{font-size:12px;color:var(--muted);text-align:right;line-height:1.8;}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
@@ -238,15 +239,14 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
     <div class="hero-bg-ring"></div>
     <div class="hero-eyebrow">UX Planner · Service Designer</div>
     <h1>사용자의 맥락을<br><em>서비스로</em> 풀어냅니다</h1>
-    <p class="hero-desc">문제를 발견하고, 데이터로 구조를 설계하며, 팀과 함께 런칭까지 이끕니다.<br>인터뷰 · 리서치 · IA · 기능명세서 · QA · 출시까지 UX 기획 전 과정을 직접 경험한 기획자입니다.</p>
+    <p class="hero-desc">문제를 발견하는 것에서 멈추지 않고, <br> 데이터를 통해 구조를 설계하고 실제 서비스로 구현해온 기획자 양새봄입니다.<br>인터뷰와 리서치를 통해 사용자 경험을 정의하고, IA 설계부터 기능 명세서 작성, QA, 런칭까지 전 과정을 주도적으로 수행해왔습니다.</p>
     <div class="chip-row">
-      <span class="chip">User Research</span><span class="chip">IA · Flowchart</span><span class="chip">기능명세서</span><span class="chip">Wireframe</span><span class="chip">Prototyping</span><span class="chip">Usability Test</span><span class="chip">QA</span><span class="chip">Figma</span><span class="chip">Data-driven</span>
+      <span class="chip">User Research</span><span class="chip">IA · Flowchart</span><span class="chip">Wireframe</span><span class="chip">Prototyping</span><span class="chip">Usability Test</span><span class="chip">QA</span><span class="chip">Figma</span><span class="chip">Data-driven</span>
     </div>
     <div class="stat-row">
       <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">서비스 런칭 경험</div></div>
       <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">수상 경력</div></div>
       <div class="stat-item"><div class="stat-num">438%</div><div class="stat-label">가입자 수 최대 증가</div></div>
-      <div class="stat-item"><div class="stat-num">3개</div><div class="stat-label">관련 자격증</div></div>
     </div>
   </div>
 
@@ -255,21 +255,15 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
     <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Credentials</h2><div class="section-line"></div></div>
     <div class="table-wrap">
       <table><thead><tr><th>자격증</th><th>발급기관</th><th>취득일</th></tr></thead><tbody>
-        <tr><td class="cert-name">서비스경험디자인기사 ⭐</td><td style="color:var(--muted)">한국디자인진흥원</td><td><span class="pill pill-green">2025.11</span></td></tr>
-        <tr><td class="cert-name">데이터분석준전문가 (ADsP)</td><td style="color:var(--muted)">한국데이터산업진흥원</td><td><span class="pill pill-blue">2026.03</span></td></tr>
+        <tr><td class="cert-name">서비스경험디자인기사 </td><td style="color:var(--muted)">한국디자인진흥원</td><td><span class="pill pill-green">2025.11</span></td></tr>
+        <tr><td class="cert-name">데이터분석준전문가(ADsP)</td><td style="color:var(--muted)">한국데이터산업진흥원</td><td><span class="pill pill-blue">2026.03</span></td></tr>
         <tr><td class="cert-name">컴퓨터그래픽스운용기능사</td><td style="color:var(--muted)">한국산업인력공단</td><td><span class="pill pill-yellow">2023.04</span></td></tr>
       </tbody></table>
     </div>
-    <div class="table-wrap">
-      <table><thead><tr><th>어학</th><th>등급 / 점수</th><th>응시일</th></tr></thead><tbody>
-        <tr><td class="cert-name">OPIc (영어)</td><td><span class="pill pill-orange">IM1</span></td><td style="color:var(--muted)">2025.04</td></tr>
-        <tr><td class="cert-name">TOEIC</td><td><span class="pill pill-blue">685점 (LC 395 / RC 290)</span></td><td style="color:var(--muted)">2025.08</td></tr>
-      </tbody></table>
-    </div>
     <div style="margin-top:24px;">
-      <div class="award-card"><div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안.</div></div><span class="pill pill-orange">🏅 장려상</span></div>
-      <div class="award-card"><div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 서비스 'Pairy' 기획.</div></div><span class="pill pill-green">🥈 우수상</span></div>
-      <div class="award-card"><div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 락인 마케팅 전략 기획.</div></div><span class="pill pill-purple">🥉 동상</span></div>
+      <div class="award-card"><div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안</div></div><span class="pill pill-orange">🏅 장려상</span></div>
+      <div class="award-card"><div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 스마트홈 제품 서비스 'Pairy' 기획</div></div><span class="pill pill-green">🥈 우수상</span></div>
+      <div class="award-card"><div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 우유 소비자 락인 마케팅 전략 기획</div></div><span class="pill pill-purple">🥉 동상</span></div>
     </div>
   </div>
 
@@ -288,7 +282,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
     <div class="career-card">
       <div class="career-top"><div><div class="career-co">티오에스코리아</div><div class="career-role">나이스평가정보 디지털사업실 · UX 기획 매니저</div></div><div class="career-period">2024.09 — 현재</div></div>
       <div class="career-body">
-        <div class="career-note">카드사 GDN 서비스 기획 및 UX 전반 담당. 스토리보드 작성, 사용성 테스트, QA, 유지보수, 디지털 마케팅 성과 분석까지 UX 기획 전 과정 수행.</div>
+        <div class="career-note">카드사 GDN 가입 페이지 UX/UI 총괄 <br> 스토리보드 작성, 사용성 테스트, QA, 유지보수, 디지털 마케팅 성과 분석까지 UX 기획 전 과정 수행</div>
         <ul class="dot">
           <li>제휴사 서비스 기획 및 스토리보드 작성</li>
           <li>사용자 유형 분석 및 이탈 지점 데이터 기반 구조 개선</li>
@@ -310,13 +304,14 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
           <span class="pcard-emoji">📊</span>
           <div class="pcard-name">카드사 GDN 가입 페이지</div>
           <div class="pcard-sub">데이터로 맥락을 읽고 선택을 설계하는 UX · 실무</div>
-          <div class="pcard-desc">낮은 전환율의 원인을 데이터로 파악하고, 가입 퍼널 전체를 UX 관점에서 재설계해 성과를 만들어낸 프로젝트.</div>
+          <div class="pcard-desc">낮은 가입 전환율의 원인을 데이터로 파악하고 <b>가입 퍼널 전체를 UX 관점에서 재설계</b>해 성과를 만들어낸 프로젝트</div>
           <div class="pcard-kpi">
             <div class="kpi-mini"><div class="kpi-mini-num">+438%</div><div class="kpi-mini-label">일일 가입자</div></div>
             <div class="kpi-mini"><div class="kpi-mini-num">5배↑</div><div class="kpi-mini-label">본인인증 성공</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">↓30%</div><div class="kpi-mini-label">광고 단가</div></div>
+            <div class="kpi-mini"><div class="kpi-mini-num">↓50%</div><div class="kpi-mini-label">광고 단가</div></div>
+            <div class="kpi-mini"><div class="kpi-mini-num">6개 확장</div><div class="kpi-mini-label">타 신규 서비스</div></div>
           </div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">QA</span><span class="tag">실무</span></div>
+          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">QA</span><span class="tag">실무</span></div>
           <div class="pcard-footer"><span class="pcard-period">2024.09 — 현재</span><span class="pcard-btn">자세히 보기 →</span></div>
         </div>
       </div>
@@ -326,9 +321,45 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
           <span class="pcard-emoji">🗺️</span>
           <div class="pcard-name">모이닷</div>
           <div class="pcard-sub">위치 기반 모임 관리 통합 플랫폼 · Side Project</div>
-          <div class="pcard-desc">368명 설문조사로 문제를 정의하고, 인터뷰·IA·QA를 거쳐 웹/앱을 직접 런칭한 End-to-End 기획 프로젝트.</div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
+          <div class="pcard-desc">약 400명의 설문조사로 <B>문제를 정의하고 인터뷰와 IA, QA를 거쳐 웹/앱을 직접 런칭</B>한 End-to-End 기획 프로젝트</div>
+          <div class="pcard-kpi">
+            <div class="kpi-mini"><div class="kpi-mini-num">100명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
+            <div class="kpi-mini"><div class="kpi-mini-num">방송통신위원회</div><div class="kpi-mini-label">주관 프로젝트 지원팀 선정</div></div>
+            <div class="kpi-mini"><div class="kpi-mini-num">교내 창업 지원</div><div class="kpi-mini-label">프로그램 지원팀 선정</div></div>
+          </div>
+          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
           <div class="pcard-footer"><span class="pcard-period">2023.06 — 2025.01</span><span class="pcard-btn">자세히 보기 →</span></div>
+        </div>
+      </div>
+      <div class="pcard" onclick="openModal('pairy')">
+        <div class="pcard-bar bar-p"></div>
+        <div class="pcard-body">
+          <span class="pcard-emoji">🧚🏻‍♀️</span>
+          <div class="pcard-name">Pairy (페어리)</div>
+          <div class="pcard-sub">청년 1인 가구 스마트홈 AI 제품 서비스 · LG 연계</div>
+          <div class="pcard-desc">심층 리서치를 바탕으로 <B>기억 기반 AI 감성 대화 + 공간별 맞춤 서비스</B>를 설계한 프로덕트 디자인 기획 프로젝트</div>
+          <div class="pcard-kpi">
+            <div class="kpi-mini"><div class="kpi-mini-num">디자인 학술발표대회 수상</div><div class="kpi-mini-label">2024 한국디자인학회 주관</div></div>
+          </div>
+          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
+          <div class="pcard-footer"><span class="pcard-period">2023.03 — 2023.12</span><span class="pcard-btn">자세히 보기 →</span></div>
+        </div>
+      </div>
+      <div class="pcard" onclick="openModal('skt')">
+        <div class="pcard-bar bar-r"></div>
+        <div class="pcard-body">
+          <div style="flex-shrink:0;"><span class="pcard-emoji">🔐</span><div class="pcard-name">SKT 한번에안심서비스</div><div class="pcard-sub">가족 금융사기 예방
+필수 안심 플랫폼 · 실무</div></div>
+          <div style="flex:1;">
+            <div class="pcard-desc"><b>금융사기 위험을 한 번에 관리</b>할 수 있도록 설계하고 개인과 가족 모두를 안전하게 보호하는 서비스 기획 프로젝트</div>
+            <div class="pcard-kpi">
+              <div class="kpi-mini"><div class="kpi-mini-num">3000명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-num">어드민 기획</div><div class="kpi-mini-label">운영 연결</div></div>
+              <div class="kpi-mini"><div class="kpi-mini-num">PASS인앱</div><div class="kpi-mini-label">원앱 연결</div></div>
+            </div>
+            <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">In-App</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
+            <div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2025.05 — 2025.12</span><span class="pcard-btn">자세히 보기 →</span></div>
+          </div>
         </div>
       </div>
       <div class="pcard" onclick="openModal('poomy')">
@@ -337,29 +368,18 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
           <span class="pcard-emoji">🍀</span>
           <div class="pcard-name">POOMY</div>
           <div class="pcard-sub">소품으로 연결되는 취향 공간 플랫폼 · Side Project</div>
-          <div class="pcard-desc">서울 전 지역 소품샵을 직접 현장 답사하며 데이터를 수집하고, 취향 기반 추천 앱을 기획·런칭한 프로젝트.</div>
+          <div class="pcard-desc">서울 전 지역 소품샵을 직접 현장 답사하며 데이터를 수집하고 <B>취향 기반 소품샵 추천 및 커뮤니티 앱</B> 기획 및 런칭한 프로젝트</div>
           <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
           <div class="pcard-footer"><span class="pcard-period">2024.03 — 2025.03</span><span class="pcard-btn">자세히 보기 →</span></div>
         </div>
       </div>
-      <div class="pcard" onclick="openModal('pairy')">
-        <div class="pcard-bar bar-p"></div>
-        <div class="pcard-body">
-          <span class="pcard-emoji">🤖</span>
-          <div class="pcard-name">Pairy (페어리)</div>
-          <div class="pcard-sub">청년 1인 가구 스마트홈 AI 서비스 · LG 연계</div>
-          <div class="pcard-desc">29명 심층 리서치를 바탕으로 기억 기반 AI 감성 대화 + 공간별 맞춤 서비스를 설계한 프로덕트 기획.</div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
-          <div class="pcard-footer"><span class="pcard-period">2023.03 — 2023.12</span><span class="pcard-btn">자세히 보기 →</span></div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('kido')" style="grid-column:1/3;">
+      <div class="pcard" onclick="openModal('kido')">
         <div class="pcard-bar bar-y"></div>
-        <div class="pcard-body" style="display:flex;gap:28px;align-items:flex-start;">
+        <div class="pcard-body">
           <div style="flex-shrink:0;"><span class="pcard-emoji">🏠</span><div class="pcard-name">키도미도</div><div class="pcard-sub">온 가족을 위한 스마트폰 사용 도우미</div></div>
           <div style="flex:1;">
-            <div class="pcard-desc">일방적 통제가 아닌 가족 간 소통으로 공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 해결한 소셜 임팩트 프로젝트.</div>
-            <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">App</span><span class="tag">BM</span></div>
+            <div class="pcard-desc">가족 간 소통으로 <B>공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 해결</B>한 소셜 임팩트 프로젝트</div>
+            <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</spa><span class="tag">App</span><span class="tag">BM</span></div>
             <div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2024.03 — 2024.09</span><span class="pcard-btn">자세히 보기 →</span></div>
           </div>
         </div>
@@ -371,18 +391,19 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   <div class="section" id="activities">
     <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Activities</h2><div class="section-line"></div></div>
     <div class="activity-grid">
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🏫</div><div class="act-name">서비스디자인공학과 4·5대 학생회 — 복지부</div></div><div class="act-period">2020.09 — 2021.12</div><div class="act-desc">복지 프로그램 기획·운영 / 생활 편의 정책 설계 / 예산 집행 및 관리</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🚀</div><div class="act-name">벤처 창업동아리 MAGI 22기 — 기획팀 임원</div></div><div class="act-period">2021.03 — 2022.03</div><div class="act-desc">창업 프로젝트 기획·운영 / 워크숍·세미나 기획 / 외부 협업 제안서 작성</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🎨</div><div class="act-name">SID (Social Impact Designers) 6기 — 아트팀</div></div><div class="act-period">2021.03 — 2022.12</div><div class="act-desc">발달장애인 아트 클래스 기획·운영 / 전시회 기획 및 개최 / 펀딩 기획·홍보</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">📰</div><div class="act-name">학과지위원회 PIEMAKER — 기획국장</div></div><div class="act-period">2023.02 — 2024.03</div><div class="act-desc">학과지 콘셉트·콘텐츠 기획 총괄 / 제작 프로세스 관리 / 브랜드 아이덴티티 설계</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🌍</div><div class="act-name">2024 HULT PRIZE 성신 운영진 — 대외협력팀</div></div><div class="act-period">2023.09 — 2024.03</div><div class="act-desc">외부 기관·기업 협력 관리 / 참가자 모집·홍보 / 협력사 소통 및 운영 효율화</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산·건어물 시장 UX 분석 및 개선안 도출 / 동선·서비스 흐름 설계</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🏫</div><div class="act-name">서비스디자인공학과 4·5대 학생회 — 복지부</div></div><div class="act-period">2020.09 — 2021.12</div><div class="act-desc">복지 프로그램 기획 및 운영 <br> 생활 편의 정책 설계 <br> 예산 집행 및 관리</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🚀</div><div class="act-name">벤처 창업동아리 MAGI 22기 — 기획팀 임원</div></div><div class="act-period">2021.03 — 2022.03</div><div class="act-desc">창업 프로젝트 기획 및 운영 <br> 워크숍·세미나 기획 <br> 외부 협업 제안서 작성</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🎨</div><div class="act-name">SID (Social Impact Designers) 6기 — 아트팀</div></div><div class="act-period">2021.03 — 2022.12</div><div class="act-desc">발달장애인 아트 클래스 기획 및 운영 <br> 전시회 기획 및 개최 <br> 펀딩 기획 및 홍보</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">📰</div><div class="act-name">학과지위원회 PIEMAKER — 기획국장</div></div><div class="act-period">2023.02 — 2024.03</div><div class="act-desc">학과지 컨셉 및 콘텐츠 기획 총괄 <br> 제작 프로세스 관리 <br> 학과지 아이덴티티 설계</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🌍</div><div class="act-name">2024 HULT PRIZE 성신 운영진 — 대외협력팀</div></div><div class="act-period">2023.09 — 2024.03</div><div class="act-desc">외부 기관 및 기업 협력 관리 <br> 참가자 모집 및 홍보 <br> 협력사 소통 및 운영 효율화</div></div>
+      <div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산물 및 건어물 시장 현장답사, UX 분석에 따른 개선안 도출 <br> 점포 운영 효율성 및 고객 만족도 향상 방안 제안
+ <br> 동선 및 운영 흐름에 따른 점포 매대, 포장 용기 디자인, 가격표 개선</div></div>
     </div>
   </div>
 
   <div class="footer">
     <div class="footer-logo">양새봄 · UX Planner</div>
-    <div class="footer-info">📩 이메일을 추가해주세요<br>🔗 포트폴리오 PDF 링크를 추가해주세요<br><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
+    <div class="footer-info">📩 dnflwlq7379@naver.com<br>🔗 포트폴리오 PDF 링크를 추가해주세요<br><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
   </div>
 </div>
 
@@ -392,16 +413,16 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 <div class="modal-overlay" id="modal-gdn">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('gdn')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#D97757,#FDBA8C);"></div>
+  <div class="modal-bar" style="background:linear-gradient(90deg,#FD5956,#FFE6E8);"></div>
   <span class="modal-emoji">📊</span>
   <div class="modal-title">카드사 GDN 서비스 가입 페이지</div>
   <div class="modal-subtitle">데이터로 맥락을 읽고 선택을 설계하는 가입 UX · 티오에스코리아</div>
   <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
-  <div class="modal-quote">"카드사 제휴 신규 서비스가 출시되었지만 가입률이 기대 이하였습니다. 왜 가입자가 늘어나지 않는가? 라는 물음에서 시작해 데이터 기반으로 UX 전체를 재설계했습니다."</div>
+  <div class="modal-quote">카드사 제휴 신규 서비스가 출시되었지만 가입률이 기대 이하였습니다. <br> <b>왜 가입자가 늘어나지 않는가?</b>라는 물음에서 시작해 데이터 기반으로 UX 전체를 재설계했습니다.</div>
   <div class="modal-meta">
     <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">UX 기획 매니저</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획 · 개발팀</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Notion</div></div>
+    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획 · 디자인 · 개발팀</div></div>
+    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">PPT · Confluence</div></div>
     <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">100%</div></div>
   </div>
 
@@ -410,12 +431,12 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
     <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
   </div>
   <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">TM·웹 유도에도 가입 전환율 저조. <strong>낮은 전환율 / 복잡한 가입 프로세스 / 정보 전달 부족 / 높은 이탈률</strong> 4가지 문제 확인.</div></div>
-    <div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">사용자 이탈 지점 <strong>데이터 분석</strong> → 퍼널 단계별 이탈 원인 파악. 사용자 유형 분석 및 행동 패턴 기반 타겟 세그먼트 도출.</div></div>
-    <div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content">① <strong>퍼널 최적화</strong> ② <strong>CTA 강화</strong> ③ <strong>UI/UX 최적화</strong> 3가지 전략 수립. 사용자 관점 + 비즈니스 관점 동시 설계.</div></div>
-    <div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>1차 → 2차 → 최종</strong> 3회 반복 개선. 약관 간소화·위치 이동·자동 포커싱·크로스셀링 기능 추가. <strong>스토리보드</strong> 작성 및 개발팀 협업.</div></div>
-    <div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">QA 진행 → 알파 테스트 → 서비스 출시 운영. 실시간 오류 안내·자동 입력 편의성 <strong>사용성 검증</strong> 및 반영.</div></div>
-    <div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">UX/UI 개선 이후 전환율 전반 상승. 가입 단가 절감 + 크로스셀링 효과 동시 달성.</div></div>
+    <div class="step-row"><div class="step-label sl1">Problem</div><div class="step-content">TM 및 웹 유도 가입에도 가입 전환율 저조<br> <strong>낮은 전환율 / 복잡한 가입 프로세스 / 정보 전달 부족 / 높은 이탈률</strong> 4가지 문제 확인</div></div>
+    <div class="step-row"><div class="step-label sl2">Research</div><div class="step-content">사용자 이탈 지점 <strong>데이터 분석</strong> → 퍼널 단계별 이탈 원인 파악 <br> 사용자 유형 분석 및 행동 패턴 기반 타겟 세그먼트 도출</div></div>
+    <div class="step-row"><div class="step-label sl3">Define</div><div class="step-content">① <strong>퍼널 최적화</strong> ② <strong>CTA 강화</strong> ③ <strong>UI/UX 최적화</strong> 3가지 전략 수립 <br> 사용자 관점 + 비즈니스 관점 동시 설계</div></div>
+    <div class="step-row"><div class="step-label sl4">Design</div><div class="step-content"><strong>1차 → 2차 → 최종</strong> 3회 반복 개선 (약관 간소화·위치 이동·자동 포커싱·크로스셀링 기능 추가) <br> <strong>스토리보드</strong> 작성 및 개발팀 협업</div></div>
+    <div class="step-row"><div class="step-label sl5">Test</div><div class="step-content"><b>QA 진행 → 알파 테스트 → 서비스 출시 운영</b> <br>실시간 오류 검증 문구 안내 및 자동 포커싱을 통한 입력 편의성을 통한 사용성 검증, 반영</div></div>
+    <div class="step-row"><div class="step-label sl6">Result</div><div class="step-content">UX/UI 개선 이후 <b>본인인증 횟수 5배 이상, 가입 전환율 400% 이상 상승</b> <br> GDN 광고 단가 50%절감 + 크로스셀링 효과 동시 달성</div></div>
   </div>
 
   <div class="kpi-row">
@@ -426,34 +447,36 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   </div>
 
   <div class="modal-divider"></div>
-  <div class="m-section-label">역량 매핑 — 현대오토에버 UX 기획 직무 연결</div>
+  <div class="m-section-label">Main Experience</div>
   <div class="comp-grid">
     <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량)</span></div>
-      <div class="comp-card-body">사용자 이탈 지점 <strong>데이터 정량 분석</strong>으로 퍼널 단계별 문제 원인 도출. 광고 가입 단가·본인인증 횟수 등 수치 기반 의사결정.</div>
+      <div class="comp-card-header"><span class="comp-badge cb-research">User Research</span></div>
+      <div class="comp-card-body">사용자 이탈 지점 <strong>데이터 정량 분석</strong>으로 퍼널 단계별 문제 원인 도출. 광고 가입 단가 및 본인인증 횟수 등 수치 기반 의사결정</div>
     </div>
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Use Case</span></div>
-      <div class="comp-card-body">카드사 가입 유저의 상황·니즈를 기반으로 <strong>Use Case별 가입 시나리오</strong> 설계. 기가입·카드 없음 등 엣지 케이스까지 커버.</div>
+      <div class="comp-card-body">카드사 가입 유저의 상황과 니즈를 기반으로 <strong>Use Case별 가입 시나리오</strong> 설계 → 기가입 및 카드 없음 등 엣지 케이스까지 보완</div>
     </div>
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
-      <div class="comp-card-body">"가입 장벽 최소화 + 전환율 극대화"를 UX Direction으로 설정. <strong>퍼널 최적화·CTA 강화·UI 최적화</strong> 3가지 전략 축으로 컨셉 구체화.</div>
+      <div class="comp-card-body">가입 장벽 최소화 + 전환율 극대화를 UX Direction으로 설정하고 <strong>퍼널 최적화/CTA 강화/UI 최적화</strong> 3가지 전략 축으로 컨셉 구체화</div>
     </div>
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-ia">UI 설계 · Workflows</span></div>
-      <div class="comp-card-body">1차→2차→최종 <strong>가입 프로세스 플로우</strong> 반복 설계. 약관 위치 이동·자동 포커싱·크로스셀링 팝업 등 <strong>화면 정책 수립</strong>.</div>
+      <div class="comp-card-body">1차→2차→최종 <strong>가입 프로세스 플로우</strong> 반복 설계, 약관 위치 이동 및 자동 포커싱과 크로스셀링 팝업 등 <strong>화면 정책 수립</strong></div>
     </div>
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen Design</span></div>
-      <div class="comp-card-body">카드사별 시그니처 컬러 배너·CTA 버튼·약관 UI 등 <strong>주요 화면 스토리보드</strong> 작성. Figma로 키스크린 설계 및 개발 전달.</div>
+      <div class="comp-card-body">카드사별 시그니처 컬러 배너, CTA 버튼, 약관 UI 등 <strong>주요 화면 스토리보드</strong> 작성 후 키스크린 설계 및 디자인/퍼블리싱 검토 후 개발 전달</div>
     </div>
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
-      <div class="comp-card-body">QA → 알파 테스트 → 출시 후 모니터링·유지보수까지 <strong>전 과정 직접 수행</strong>. 실시간 오류 안내·자동 입력 편의성 등 사용성 이슈 반영.</div>
+      <div class="comp-card-body">QA → 알파 테스트 → 출시 후 모니터링과 유지보수까지 <strong>전 과정 직접 수행</strong>, 실시간 오류 검증 문구 안내와 자동 포커싱 입력 편의성 등 사용성 이슈 반영</div>
     </div>
   </div>
-  <div class="result-box"><span>✅</span> 가입 단가 절감 + 추가 가입 유도 동시 달성. 데이터와 UX 개선이 함께 성장하는 것을 직접 확인한 실무 경험.</div>
+  <div class="result-box"><span>✅</span> 가입 단가 절감 + 추가 가입 유도 동시 달성, 데이터와 UX 개선이 함께 성장하는 것을 직접 확인한 실무 경험</div>
+  <div class="modal-divider"></div>
+   <div class="m-section-label">RESULT</div>
 </div></div></div>
 
 <!-- ② 모이닷 MODAL -->
@@ -487,7 +510,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   </div>
 
   <div class="modal-divider"></div>
-  <div class="m-section-label">역량 매핑 — 현대오토에버 UX 기획 직무 연결</div>
+  <div class="m-section-label">Main Experience</div>
   <div class="comp-grid">
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
@@ -548,7 +571,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   </div>
 
   <div class="modal-divider"></div>
-  <div class="m-section-label">역량 매핑 — 현대오토에버 UX 기획 직무 연결</div>
+  <div class="m-section-label">Main Experience</div>
   <div class="comp-grid">
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
@@ -609,7 +632,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   </div>
 
   <div class="modal-divider"></div>
-  <div class="m-section-label">역량 매핑 — 현대오토에버 UX 기획 직무 연결</div>
+  <div class="m-section-label">Main Experience</div>
   <div class="comp-grid">
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
@@ -670,7 +693,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
   </div>
 
   <div class="modal-divider"></div>
-  <div class="m-section-label">역량 매핑 — 현대오토에버 UX 기획 직무 연결</div>
+  <div class="m-section-label">Main Experience</div>
   <div class="comp-grid">
     <div class="comp-card">
       <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
