@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>양새봄 · UX Planner Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&amp;family=Fraunces:ital,wght@0,400;0,700;1,400&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
 :root {
   --cream:#FAF8F4; --ink:#1C1917; --ink-light:#44403C; --muted:#797979;
@@ -121,7 +122,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 /* ── MODAL ── */
 .modal-overlay{position:fixed;inset:0;background:rgba(28,25,23,0.55);backdrop-filter:blur(6px);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;opacity:0;pointer-events:none;transition:opacity 0.25s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
-.modal{background:var(--cream);border-radius:18px;width:100%;max-width:820px;max-height:90vh;overflow-y:auto;transform:translateY(24px);transition:transform 0.3s cubic-bezier(.22,.61,.36,1);}
+.modal{background:var(--cream);border-radius:18px;width:100%;max-width:1000px;max-height:90vh;overflow-y:auto;transform:translateY(24px);transition:transform 0.3s cubic-bezier(.22,.61,.36,1);}
 .modal-overlay.open .modal{transform:translateY(0);}
 .modal::-webkit-scrollbar{width:4px;}
 .modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
@@ -217,533 +218,660 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 .hero,.section{animation:fadeUp 0.5s ease both;}
+
+/* profile */
+.hero-profile{margin-top:24px;}
+.hero-profile img{width:250px;height:250px;border-radius:50%;object-fit:cover;border:2px solid var(--border);}
+
+/* result images */
+.result-images img{width:100%;border-radius:10px;border:1px solid var(--border);object-fit:cover;cursor:pointer;transition:0.2s;}
+.result-images img:hover{transform:scale(1.02);}
+.result-text{font-size:14px;color:#166534;line-height:1.7;}
+.result-images{display:flex;flex-direction:column;gap:12px;margin-top:12px;}
+.hero-profile{position:relative;z-index:10;}
+.hero-bg-circle{width:520px;height:520px;top:-120px;right:-120px;}
+.project-thumb{width:100%;height:180px;object-fit:cover;border-radius:12px;margin-bottom:16px;}
+.result-images{display:grid;grid-template-columns:1fr;gap:12px;}
+.project-gallery{margin-top:20px;display:grid;grid-template-columns:1fr;gap:14px;}
+.project-gallery img{width:100%;border-radius:12px;cursor:pointer;transition:0.3s;}
+.project-gallery img:hover{transform:scale(1.02);}
+
 </style>
 </head>
 <body>
-
 <nav>
-  <div class="nav-logo">양새봄</div>
-  <ul class="nav-links">
-    <li><a href="#credentials">Credentials</a></li>
-    <li><a href="#career">Career</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#activities">Activities</a></li>
-  </ul>
+<div class="nav-logo">양새봄</div>
+<ul class="nav-links">
+<li><a href="#credentials">Credentials</a></li>
+<li><a href="#career">Career</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#activities">Activities</a></li>
+</ul>
 </nav>
-
 <div class="page">
+<!-- HERO -->
+<div class="hero">
+<div class="hero-bg-circle"></div>
+<div class="hero-bg-ring"></div>
 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-bg-circle"></div>
-    <div class="hero-bg-ring"></div>
+<div style="display:flex; gap:40px; align-items:flex-start;">
+  <div style="flex:1;">
     <div class="hero-eyebrow">UX Planner · Service Designer</div>
-    <h1>사용자의 맥락을<br><em>서비스로</em> 풀어냅니다</h1>
-    <p class="hero-desc">문제를 발견하는 것에서 멈추지 않고, <br> 데이터를 통해 구조를 설계하고 실제 서비스로 구현해온 기획자 양새봄입니다.<br>인터뷰와 리서치를 통해 사용자 경험을 정의하고, IA 설계부터 기능 명세서 작성, QA, 런칭까지 전 과정을 주도적으로 수행해왔습니다.</p>
-    <div class="chip-row">
-      <span class="chip">User Research</span><span class="chip">IA · Flowchart</span><span class="chip">Wireframe</span><span class="chip">Prototyping</span><span class="chip">Usability Test</span><span class="chip">QA</span><span class="chip">Figma</span><span class="chip">Data-driven</span>
-    </div>
-    <div class="stat-row">
-      <div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">서비스 런칭 경험</div></div>
-      <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">수상 경력</div></div>
-      <div class="stat-item"><div class="stat-num">438%</div><div class="stat-label">가입자 수 최대 증가</div></div>
-    </div>
+    <h1>사용자의 맥락을<br/><em>서비스로</em> 풀어냅니다</h1>
+    <p class="hero-desc">
+      문제를 발견하는 것에서 멈추지 않고,<br/>
+      데이터를 통해 구조를 설계하고 실제 서비스로 구현해온 기획자 양새봄입니다.<br/>
+      인터뷰와 리서치를 통해 사용자 경험을 정의하고, IA 설계부터 기능 명세서 작성, QA, 런칭까지 전 과정을 주도적으로 수행해왔습니다.
+    </p>
   </div>
 
-  <!-- 01 CREDENTIALS -->
-  <div class="section" id="credentials">
-    <div class="section-header"><span class="section-num">01</span><h2 class="section-title">Credentials</h2><div class="section-line"></div></div>
-    <div class="table-wrap">
-      <table><thead><tr><th>자격증</th><th>발급기관</th><th>취득일</th></tr></thead><tbody>
-        <tr><td class="cert-name">서비스경험디자인기사 </td><td style="color:var(--muted)">한국디자인진흥원</td><td><span class="pill pill-green">2025.11</span></td></tr>
-        <tr><td class="cert-name">데이터분석준전문가(ADsP)</td><td style="color:var(--muted)">한국데이터산업진흥원</td><td><span class="pill pill-blue">2026.03</span></td></tr>
-        <tr><td class="cert-name">컴퓨터그래픽스운용기능사</td><td style="color:var(--muted)">한국산업인력공단</td><td><span class="pill pill-yellow">2023.04</span></td></tr>
-      </tbody></table>
-    </div>
-    <div style="margin-top:24px;">
-      <div class="award-card"><div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안</div></div><span class="pill pill-orange">🏅 장려상</span></div>
-      <div class="award-card"><div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 스마트홈 제품 서비스 'Pairy' 기획</div></div><span class="pill pill-green">🥈 우수상</span></div>
-      <div class="award-card"><div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 우유 소비자 락인 마케팅 전략 기획</div></div><span class="pill pill-purple">🥉 동상</span></div>
-    </div>
-  </div>
-
-  <!-- 02 CAREER -->
-  <div class="section" id="career">
-    <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Career</h2><div class="section-line"></div></div>
-    <div class="career-card">
-      <div class="career-top"><div><div class="career-co">파소갤러리</div><div class="career-role">산학연계 인턴 · 디자이너</div></div><div class="career-period">2023.09 — 2024.07</div></div>
-      <div class="career-body"><ul class="dot">
-        <li>갤러리 브랜드 경험 강화를 위한 홈페이지 기획 및 디자인</li>
-        <li>전시 콘셉트와 일관된 브랜딩 서비스 기획 및 홍보물 제작</li>
-        <li>작가 작품 IP 전환을 통한 부가가치 창출 및 굿즈 판매 프로세스 관리</li>
-        <li>홍대 투썸 서교점 벽화 일러스트 패턴 디자인 참여</li>
-      </ul></div>
-    </div>
-    <div class="career-card">
-      <div class="career-top"><div><div class="career-co">티오에스코리아</div><div class="career-role">나이스평가정보 디지털사업실 · UX 기획 매니저</div></div><div class="career-period">2024.09 — 현재</div></div>
-      <div class="career-body">
-        <div class="career-note">카드사 GDN 가입 페이지 UX/UI 총괄 <br> 스토리보드 작성, 사용성 테스트, QA, 유지보수, 디지털 마케팅 성과 분석까지 UX 기획 전 과정 수행</div>
-        <ul class="dot">
-          <li>제휴사 서비스 기획 및 스토리보드 작성</li>
-          <li>사용자 유형 분석 및 이탈 지점 데이터 기반 구조 개선</li>
-          <li>개인 신용정보 조회 UX 재설계로 전환율 향상 유도</li>
-          <li>사용성 테스트, QA 진행 및 서비스 모니터링·유지보수</li>
-          <li>디지털 마케팅 활동 기획 및 성과 분석</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- 03 PROJECTS -->
-  <div class="section" id="projects">
-    <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
-    <div class="project-grid">
-      <div class="pcard" onclick="openModal('gdn')">
-        <div class="pcard-bar bar-o"></div>
-        <div class="pcard-body">
-          <span class="pcard-emoji">📊</span>
-          <div class="pcard-name">카드사 GDN 가입 페이지</div>
-          <div class="pcard-sub">데이터로 맥락을 읽고 선택을 설계하는 UX · 실무</div>
-          <div class="pcard-desc">낮은 가입 전환율의 원인을 데이터로 파악하고 <b>가입 퍼널 전체를 UX 관점에서 재설계</b>해 성과를 만들어낸 프로젝트</div>
-          <div class="pcard-kpi">
-            <div class="kpi-mini"><div class="kpi-mini-num">+438%</div><div class="kpi-mini-label">일일 가입자</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">5배↑</div><div class="kpi-mini-label">본인인증 성공</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">↓50%</div><div class="kpi-mini-label">광고 단가</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">6개 확장</div><div class="kpi-mini-label">타 신규 서비스</div></div>
-          </div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">QA</span><span class="tag">실무</span></div>
-          <div class="pcard-footer"><span class="pcard-period">2024.09 — 현재</span><span class="pcard-btn">자세히 보기 →</span></div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('moidot')">
-        <div class="pcard-bar bar-b"></div>
-        <div class="pcard-body">
-          <span class="pcard-emoji">🗺️</span>
-          <div class="pcard-name">모이닷</div>
-          <div class="pcard-sub">위치 기반 모임 관리 통합 플랫폼 · Side Project</div>
-          <div class="pcard-desc">약 400명의 설문조사로 <B>문제를 정의하고 인터뷰와 IA, QA를 거쳐 웹/앱을 직접 런칭</B>한 End-to-End 기획 프로젝트</div>
-          <div class="pcard-kpi">
-            <div class="kpi-mini"><div class="kpi-mini-num">100명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">방송통신위원회</div><div class="kpi-mini-label">주관 프로젝트 지원팀 선정</div></div>
-            <div class="kpi-mini"><div class="kpi-mini-num">교내 창업 지원</div><div class="kpi-mini-label">프로그램 지원팀 선정</div></div>
-          </div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
-          <div class="pcard-footer"><span class="pcard-period">2023.06 — 2025.01</span><span class="pcard-btn">자세히 보기 →</span></div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('pairy')">
-        <div class="pcard-bar bar-p"></div>
-        <div class="pcard-body">
-          <span class="pcard-emoji">🧚🏻‍♀️</span>
-          <div class="pcard-name">Pairy (페어리)</div>
-          <div class="pcard-sub">청년 1인 가구 스마트홈 AI 제품 서비스 · LG 연계</div>
-          <div class="pcard-desc">심층 리서치를 바탕으로 <B>기억 기반 AI 감성 대화 + 공간별 맞춤 서비스</B>를 설계한 프로덕트 디자인 기획 프로젝트</div>
-          <div class="pcard-kpi">
-            <div class="kpi-mini"><div class="kpi-mini-num">디자인 학술발표대회 수상</div><div class="kpi-mini-label">2024 한국디자인학회 주관</div></div>
-          </div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
-          <div class="pcard-footer"><span class="pcard-period">2023.03 — 2023.12</span><span class="pcard-btn">자세히 보기 →</span></div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('skt')">
-        <div class="pcard-bar bar-r"></div>
-        <div class="pcard-body">
-          <div style="flex-shrink:0;"><span class="pcard-emoji">🔐</span><div class="pcard-name">SKT 한번에안심서비스</div><div class="pcard-sub">가족 금융사기 예방
-필수 안심 플랫폼 · 실무</div></div>
-          <div style="flex:1;">
-            <div class="pcard-desc"><b>금융사기 위험을 한 번에 관리</b>할 수 있도록 설계하고 개인과 가족 모두를 안전하게 보호하는 서비스 기획 프로젝트</div>
-            <div class="pcard-kpi">
-              <div class="kpi-mini"><div class="kpi-mini-num">3000명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
-              <div class="kpi-mini"><div class="kpi-mini-num">어드민 기획</div><div class="kpi-mini-label">운영 연결</div></div>
-              <div class="kpi-mini"><div class="kpi-mini-num">PASS인앱</div><div class="kpi-mini-label">원앱 연결</div></div>
-            </div>
-            <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">In-App</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
-            <div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2025.05 — 2025.12</span><span class="pcard-btn">자세히 보기 →</span></div>
-          </div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('poomy')">
-        <div class="pcard-bar bar-g"></div>
-        <div class="pcard-body">
-          <span class="pcard-emoji">🍀</span>
-          <div class="pcard-name">POOMY</div>
-          <div class="pcard-sub">소품으로 연결되는 취향 공간 플랫폼 · Side Project</div>
-          <div class="pcard-desc">서울 전 지역 소품샵을 직접 현장 답사하며 데이터를 수집하고 <B>취향 기반 소품샵 추천 및 커뮤니티 앱</B> 기획 및 런칭한 프로젝트</div>
-          <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
-          <div class="pcard-footer"><span class="pcard-period">2024.03 — 2025.03</span><span class="pcard-btn">자세히 보기 →</span></div>
-        </div>
-      </div>
-      <div class="pcard" onclick="openModal('kido')">
-        <div class="pcard-bar bar-y"></div>
-        <div class="pcard-body">
-          <div style="flex-shrink:0;"><span class="pcard-emoji">🏠</span><div class="pcard-name">키도미도</div><div class="pcard-sub">온 가족을 위한 스마트폰 사용 도우미</div></div>
-          <div style="flex:1;">
-            <div class="pcard-desc">가족 간 소통으로 <B>공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 해결</B>한 소셜 임팩트 프로젝트</div>
-            <div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</spa><span class="tag">App</span><span class="tag">BM</span></div>
-            <div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2024.03 — 2024.09</span><span class="pcard-btn">자세히 보기 →</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 04 ACTIVITIES -->
-  <div class="section" id="activities">
-    <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Activities</h2><div class="section-line"></div></div>
-    <div class="activity-grid">
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🏫</div><div class="act-name">서비스디자인공학과 4·5대 학생회 — 복지부</div></div><div class="act-period">2020.09 — 2021.12</div><div class="act-desc">복지 프로그램 기획 및 운영 <br> 생활 편의 정책 설계 <br> 예산 집행 및 관리</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🚀</div><div class="act-name">벤처 창업동아리 MAGI 22기 — 기획팀 임원</div></div><div class="act-period">2021.03 — 2022.03</div><div class="act-desc">창업 프로젝트 기획 및 운영 <br> 워크숍·세미나 기획 <br> 외부 협업 제안서 작성</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🎨</div><div class="act-name">SID (Social Impact Designers) 6기 — 아트팀</div></div><div class="act-period">2021.03 — 2022.12</div><div class="act-desc">발달장애인 아트 클래스 기획 및 운영 <br> 전시회 기획 및 개최 <br> 펀딩 기획 및 홍보</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">📰</div><div class="act-name">학과지위원회 PIEMAKER — 기획국장</div></div><div class="act-period">2023.02 — 2024.03</div><div class="act-desc">학과지 컨셉 및 콘텐츠 기획 총괄 <br> 제작 프로세스 관리 <br> 학과지 아이덴티티 설계</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🌍</div><div class="act-name">2024 HULT PRIZE 성신 운영진 — 대외협력팀</div></div><div class="act-period">2023.09 — 2024.03</div><div class="act-desc">외부 기관 및 기업 협력 관리 <br> 참가자 모집 및 홍보 <br> 협력사 소통 및 운영 효율화</div></div>
-      <div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산물 및 건어물 시장 현장답사, UX 분석에 따른 개선안 도출 <br> 점포 운영 효율성 및 고객 만족도 향상 방안 제안
- <br> 동선 및 운영 흐름에 따른 점포 매대, 포장 용기 디자인, 가격표 개선</div></div>
-    </div>
-  </div>
-
-  <div class="footer">
-    <div class="footer-logo">양새봄 · UX Planner</div>
-    <div class="footer-info">📩 dnflwlq7379@naver.com<br>🔗 포트폴리오 PDF 링크를 추가해주세요<br><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
+  <div class="hero-profile">
+    <img src="프로필.jpg" alt="프로필"/>
   </div>
 </div>
 
-<!-- ═══════════════ MODALS ═══════════════ -->
+<div class="chip-row">
+<span class="chip">User Research</span><span class="chip">IA · Flowchart</span><span class="chip">Wireframe</span><span class="chip">Prototyping</span><span class="chip">Usability Test</span><span class="chip">QA</span><span class="chip">Figma</span><span class="chip">Data-driven</span>
+</div>
+<div class="stat-row">
+<div class="stat-item"><div class="stat-num">5+</div><div class="stat-label">서비스 런칭 경험</div></div>
+<div class="stat-item"><div class="stat-num">3</div><div class="stat-label">수상 경력</div></div>
+<div class="stat-item"><div class="stat-num">438%</div><div class="stat-label">가입자 수 최대 증가</div></div>
+</div>
+</div>
+<!-- 01 CREDENTIALS -->
+<div class="section" id="credentials">
+<div class="section-header"><span class="section-num">01</span><h2 class="section-title">Credentials</h2><div class="section-line"></div></div>
+<div class="table-wrap">
+<table><thead><tr><th>자격증</th><th>발급기관</th><th>취득일</th></tr></thead><tbody>
+<tr><td class="cert-name">서비스경험디자인기사 </td><td style="color:var(--muted)">한국디자인진흥원</td><td><span class="pill pill-green">2025.11</span></td></tr>
+<tr><td class="cert-name">데이터분석준전문가(ADsP)</td><td style="color:var(--muted)">한국데이터산업진흥원</td><td><span class="pill pill-blue">2026.03</span></td></tr>
+<tr><td class="cert-name">컴퓨터그래픽스운용기능사</td><td style="color:var(--muted)">한국산업인력공단</td><td><span class="pill pill-yellow">2023.04</span></td></tr>
+</tbody></table>
+</div>
+<div style="margin-top:24px;">
+<div class="award-card"><div><div class="award-name">도전.한국 도전.안전사회</div><div class="award-org">행정안전부 · 2023.07</div><div class="award-desc">AR + 색상 기반 공연장 관객 밀집 예방 솔루션 '컬러 딜리버리' 제안</div></div><span class="pill pill-orange">🏅 장려상</span></div>
+<div class="award-card"><div><div class="award-name">2023 가을 대학생 디자인 학술발표대회</div><div class="award-org">한국디자인학회 · 2023.10</div><div class="award-desc">청년 1인 가구 외로움 해소를 위한 AI 스마트홈 제품 서비스 'Pairy' 기획</div></div><span class="pill pill-green">🥈 우수상</span></div>
+<div class="award-card"><div><div class="award-name">산학연계프로그램 제4기 청춘락유 프로젝트</div><div class="award-org">우유자조금위원회 · 2024.06</div><div class="award-desc">"We will Lock You" 컨셉 우유 소비자 락인 마케팅 전략 기획</div></div><span class="pill pill-purple">🥉 동상</span></div>
+</div>
+</div>
+<!-- 02 CAREER -->
+<div class="section" id="career">
+<div class="section-header"><span class="section-num">02</span><h2 class="section-title">Career</h2><div class="section-line"></div></div>
+<div class="career-card">
+<div class="career-top"><div><div class="career-co">파소갤러리</div><div class="career-role">산학연계 인턴 · 디자이너</div></div><div class="career-period">2023.09 — 2024.07</div></div>
+<div class="career-body"><ul class="dot">
+<li>갤러리 브랜드 경험 강화를 위한 홈페이지 기획 및 디자인</li>
+<li>전시 콘셉트와 일관된 브랜딩 서비스 기획 및 홍보물 제작</li>
+<li>작가 작품 IP 전환을 통한 부가가치 창출 및 굿즈 판매 프로세스 관리</li>
+<li>홍대 투썸 서교점 벽화 일러스트 패턴 디자인 참여</li>
+</ul></div>
+</div>
+<div class="career-card">
+<div class="career-top"><div><div class="career-co">티오에스코리아</div><div class="career-role">나이스평가정보 디지털사업실 · UX 기획 매니저</div></div><div class="career-period">2024.09 — 현재</div></div>
+<div class="career-body">
+<div class="career-note">카드사 GDN 가입 페이지 UX/UI 총괄 <br/> 스토리보드 작성, 사용성 테스트, QA, 유지보수, 디지털 마케팅 성과 분석까지 UX 기획 전 과정 수행</div>
+<ul class="dot">
+<li>제휴사 서비스 기획 및 스토리보드 작성</li>
+<li>사용자 유형 분석 및 이탈 지점 데이터 기반 구조 개선</li>
+<li>개인 신용정보 조회 UX 재설계로 전환율 향상 유도</li>
+<li>사용성 테스트, QA 진행 및 서비스 모니터링·유지보수</li>
+<li>디지털 마케팅 활동 기획 및 성과 분석</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 03 PROJECTS -->
+<div class="section" id="projects">
+<div class="section-header"><span class="section-num">03</span><h2 class="section-title">Projects</h2><div class="section-line"></div></div>
+<div class="project-grid">
+<div class="pcard" onclick="openModal('gdn')">
+<div class="pcard-bar bar-b"></div>
+<div class="pcard-body">
+<img src="p1_main.png" class="project-thumb"/>
 
+<div class="pcard-name">카드사 GDN 가입 페이지</div>
+<div class="pcard-sub">데이터로 맥락을 읽고 선택을 설계하는 UX · 실무</div>
+<div class="pcard-desc">낮은 가입 전환율의 원인을 데이터로 파악하고 <b>가입 퍼널 전체를 UX 관점에서 재설계</b>해 성과를 만들어낸 프로젝트</div>
+<div class="pcard-kpi">
+<div class="kpi-mini"><div class="kpi-mini-num">+438%</div><div class="kpi-mini-label">일일 가입자</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">5배↑</div><div class="kpi-mini-label">본인인증 성공</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">↓50%</div><div class="kpi-mini-label">광고 단가</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">6개 확장</div><div class="kpi-mini-label">타 신규 서비스</div></div>
+</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">QA</span><span class="tag">실무</span></div>
+<div class="pcard-footer"><span class="pcard-period">2024.09 — 현재</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+<div class="pcard" onclick="openModal('moidot')">
+<div class="pcard-bar bar-o"></div>
+<div class="pcard-body">
+<img src="p2_main.png" class="project-thumb"/>
+
+<div class="pcard-name">모이닷</div>
+<div class="pcard-sub">위치 기반 모임 관리 통합 플랫폼 · Side Project</div>
+<div class="pcard-desc">약 400명의 설문조사로 <b>문제를 정의하고 인터뷰와 IA, QA를 거쳐 웹/앱을 직접 런칭</b>한 End-to-End 기획 프로젝트</div>
+<div class="pcard-kpi">
+<div class="kpi-mini"><div class="kpi-mini-num">100명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">방송통신위원회</div><div class="kpi-mini-label">주관 프로젝트 지원팀 선정</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">교내 창업 지원</div><div class="kpi-mini-label">프로그램 지원팀 선정</div></div>
+</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">GA</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
+<div class="pcard-footer"><span class="pcard-period">2023.06 — 2025.01</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+<div class="pcard" onclick="openModal('pairy')">
+<div class="pcard-bar bar-p"></div>
+<div class="pcard-body">
+<img src="p3_main.png" class="project-thumb"/>
+
+<div class="pcard-name">Pairy</div>
+<div class="pcard-sub">청년 1인 가구 스마트홈 AI 제품 서비스 · LG 연계</div>
+<div class="pcard-desc">심층 리서치를 바탕으로 <b>기억 기반 AI 감성 대화 + 공간별 맞춤 서비스</b>를 설계한 프로덕트 디자인 기획 프로젝트</div>
+<div class="pcard-kpi">
+<div class="kpi-mini"><div class="kpi-mini-num">디자인 학술발표대회 수상</div><div class="kpi-mini-label">2024 한국디자인학회 주관</div></div>
+</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
+<div class="pcard-footer"><span class="pcard-period">2023.03 — 2023.12</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+<div class="pcard" onclick="openModal('skt')">
+<div class="pcard-bar bar-r"></div>
+<div class="pcard-body">
+<img src="p4_main.png" class="project-thumb"/>
+
+<div style="flex-shrink:0;"><div class="pcard-name">SKT 한번에안심서비스</div><div class="pcard-sub">가족 금융사기 예방
+필수 안심 플랫폼 · 실무</div></div>
+<div style="flex:1;">
+<div class="pcard-desc"><b>금융사기 위험을 한 번에 관리</b>할 수 있도록 설계하고 개인과 가족 모두를 안전하게 보호하는 서비스 기획 프로젝트</div>
+<div class="pcard-kpi">
+<div class="kpi-mini"><div class="kpi-mini-num">3000명↑</div><div class="kpi-mini-label">월간 가입자</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">어드민 기획</div><div class="kpi-mini-label">운영 연결</div></div>
+<div class="kpi-mini"><div class="kpi-mini-num">PASS인앱</div><div class="kpi-mini-label">원앱 연결</div></div>
+</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">In-App</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
+<div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2025.05 — 2025.12</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+</div>
+<div class="pcard" onclick="openModal('poomy')">
+<div class="pcard-bar bar-g"></div>
+<div class="pcard-body">
+<img src="p5_main.png" class="project-thumb"/>
+
+
+<div class="pcard-name">POOMY</div>
+<div class="pcard-sub">소품으로 연결되는 취향 공간 플랫폼 · Side Project</div>
+<div class="pcard-desc">서울 전 지역 소품샵을 직접 현장 답사하며 데이터를 수집하고 <b>취향 기반 소품샵 추천 및 커뮤니티 앱</b> 기획 및 런칭한 프로젝트</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
+<div class="pcard-footer"><span class="pcard-period">2024.03 — 2025.03</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+<div class="pcard" onclick="openModal('kido')">
+<div class="pcard-bar bar-y"></div>
+<div class="pcard-body">
+<img src="p6_main.png" class="project-thumb"/>
+
+<div style="flex-shrink:0;"><div class="pcard-name">키도미도</div><div class="pcard-sub">온 가족을 위한 스마트폰 사용 도우미</div></div>
+<div style="flex:1;">
+<div class="pcard-desc">가족 간 소통으로 <b>공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 해결</b>한 소셜 임팩트 프로젝트</div>
+<div class="pcard-tags"><span class="tag">UX/UI</span><span class="tag">Product<span class="tag">App</span><span class="tag">BM</span></span></div>
+<div class="pcard-footer" style="border-top:1px solid var(--border);margin-top:14px;padding-top:14px;"><span class="pcard-period">2024.03 — 2024.09</span><span class="pcard-btn">자세히 보기 →</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 04 ACTIVITIES -->
+<div class="section" id="activities">
+<div class="section-header"><span class="section-num">04</span><h2 class="section-title">Activities</h2><div class="section-line"></div></div>
+<div class="activity-grid">
+<div class="activity-card"><div class="act-top"><div class="act-icon">🏫</div><div class="act-name">서비스디자인공학과 4·5대 학생회 — 복지부</div></div><div class="act-period">2020.09 — 2021.12</div><div class="act-desc">복지 프로그램 기획 및 운영 <br/> 생활 편의 정책 설계 <br/> 예산 집행 및 관리</div></div>
+<div class="activity-card"><div class="act-top"><div class="act-icon">🚀</div><div class="act-name">벤처 창업동아리 MAGI 22기 — 기획팀 임원</div></div><div class="act-period">2021.03 — 2022.03</div><div class="act-desc">창업 프로젝트 기획 및 운영 <br/> 워크숍·세미나 기획 <br/> 외부 협업 제안서 작성</div></div>
+<div class="activity-card"><div class="act-top"><div class="act-icon">🎨</div><div class="act-name">SID (Social Impact Designers) 6기 — 아트팀</div></div><div class="act-period">2021.03 — 2022.12</div><div class="act-desc">발달장애인 아트 클래스 기획 및 운영 <br/> 전시회 기획 및 개최 <br/> 펀딩 기획 및 홍보</div></div>
+<div class="activity-card"><div class="act-top"><div class="act-icon">📰</div><div class="act-name">학과지위원회 PIEMAKER — 기획국장</div></div><div class="act-period">2023.02 — 2024.03</div><div class="act-desc">학과지 컨셉 및 콘텐츠 기획 총괄 <br/> 제작 프로세스 관리 <br/> 학과지 아이덴티티 설계</div></div>
+<div class="activity-card"><div class="act-top"><div class="act-icon">🌍</div><div class="act-name">2024 HULT PRIZE 성신 운영진 — 대외협력팀</div></div><div class="act-period">2023.09 — 2024.03</div><div class="act-desc">외부 기관 및 기업 협력 관리 <br/> 참가자 모집 및 홍보 <br/> 협력사 소통 및 운영 효율화</div></div>
+<div class="activity-card"><div class="act-top"><div class="act-icon">🏪</div><div class="act-name">수유 4U 점포 개선 프로젝트</div></div><div class="act-period">2021.06 — 2021.12</div><div class="act-desc">수산물 및 건어물 시장 현장답사, UX 분석에 따른 개선안 도출 <br/> 점포 운영 효율성 및 고객 만족도 향상 방안 제안
+ <br/> 동선 및 운영 흐름에 따른 점포 매대, 포장 용기 디자인, 가격표 개선</div></div>
+</div>
+</div>
+<div class="footer">
+<div class="footer-logo">양새봄 · UX Planner</div>
+<div class="footer-info">📩 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="670309010b100b165054505e2709061102154904080a">[email&#160;protected]</a><br/>🔗 포트폴리오 PDF 링크를 추가해주세요<br/><span style="color:var(--border)">© 2026 Yang Saebom</span></div>
+</div>
+</div>
+<!-- ═══════════════ MODALS ═══════════════ -->
 <!-- ① GDN MODAL -->
 <div class="modal-overlay" id="modal-gdn">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('gdn')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#FD5956,#FFE6E8);"></div>
-  <span class="modal-emoji">📊</span>
-  <div class="modal-title">카드사 GDN 서비스 가입 페이지</div>
-  <div class="modal-subtitle">데이터로 맥락을 읽고 선택을 설계하는 가입 UX · 티오에스코리아</div>
-  <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
-  <div class="modal-quote">카드사 제휴 신규 서비스가 출시되었지만 가입률이 기대 이하였습니다. <br> <b>왜 가입자가 늘어나지 않는가?</b>라는 물음에서 시작해 데이터 기반으로 UX 전체를 재설계했습니다.</div>
-  <div class="modal-meta">
-    <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">UX 기획 매니저</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획 · 디자인 · 개발팀</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">PPT · Confluence</div></div>
-    <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">100%</div></div>
-  </div>
-
-  <div class="m-section-label">UX Process</div>
-  <div class="process-flow">
-    <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
-  </div>
-  <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">Problem</div><div class="step-content">TM 및 웹 유도 가입에도 가입 전환율 저조<br> <strong>낮은 전환율 / 복잡한 가입 프로세스 / 정보 전달 부족 / 높은 이탈률</strong> 4가지 문제 확인</div></div>
-    <div class="step-row"><div class="step-label sl2">Research</div><div class="step-content">사용자 이탈 지점 <strong>데이터 분석</strong> → 퍼널 단계별 이탈 원인 파악 <br> 사용자 유형 분석 및 행동 패턴 기반 타겟 세그먼트 도출</div></div>
-    <div class="step-row"><div class="step-label sl3">Define</div><div class="step-content">① <strong>퍼널 최적화</strong> ② <strong>CTA 강화</strong> ③ <strong>UI/UX 최적화</strong> 3가지 전략 수립 <br> 사용자 관점 + 비즈니스 관점 동시 설계</div></div>
-    <div class="step-row"><div class="step-label sl4">Design</div><div class="step-content"><strong>1차 → 2차 → 최종</strong> 3회 반복 개선 (약관 간소화·위치 이동·자동 포커싱·크로스셀링 기능 추가) <br> <strong>스토리보드</strong> 작성 및 개발팀 협업</div></div>
-    <div class="step-row"><div class="step-label sl5">Test</div><div class="step-content"><b>QA 진행 → 알파 테스트 → 서비스 출시 운영</b> <br>실시간 오류 검증 문구 안내 및 자동 포커싱을 통한 입력 편의성을 통한 사용성 검증, 반영</div></div>
-    <div class="step-row"><div class="step-label sl6">Result</div><div class="step-content">UX/UI 개선 이후 <b>본인인증 횟수 5배 이상, 가입 전환율 400% 이상 상승</b> <br> GDN 광고 단가 50%절감 + 크로스셀링 효과 동시 달성</div></div>
-  </div>
-
-  <div class="kpi-row">
-    <div class="kpi-card"><div class="kpi-num">5배↑</div><div class="kpi-label">본인인증 성공 횟수</div></div>
-    <div class="kpi-card"><div class="kpi-num">+438%</div><div class="kpi-label">일일 가입자 수 최대</div></div>
-    <div class="kpi-card"><div class="kpi-num">↓30%</div><div class="kpi-label">광고 가입 단가 감소</div></div>
-    <div class="kpi-card"><div class="kpi-num">~30%</div><div class="kpi-label">크로스셀링 전환율</div></div>
-  </div>
-
-  <div class="modal-divider"></div>
-  <div class="m-section-label">Main Experience</div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research</span></div>
-      <div class="comp-card-body">사용자 이탈 지점 <strong>데이터 정량 분석</strong>으로 퍼널 단계별 문제 원인 도출. 광고 가입 단가 및 본인인증 횟수 등 수치 기반 의사결정</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Use Case</span></div>
-      <div class="comp-card-body">카드사 가입 유저의 상황과 니즈를 기반으로 <strong>Use Case별 가입 시나리오</strong> 설계 → 기가입 및 카드 없음 등 엣지 케이스까지 보완</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
-      <div class="comp-card-body">가입 장벽 최소화 + 전환율 극대화를 UX Direction으로 설정하고 <strong>퍼널 최적화/CTA 강화/UI 최적화</strong> 3가지 전략 축으로 컨셉 구체화</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-ia">UI 설계 · Workflows</span></div>
-      <div class="comp-card-body">1차→2차→최종 <strong>가입 프로세스 플로우</strong> 반복 설계, 약관 위치 이동 및 자동 포커싱과 크로스셀링 팝업 등 <strong>화면 정책 수립</strong></div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen Design</span></div>
-      <div class="comp-card-body">카드사별 시그니처 컬러 배너, CTA 버튼, 약관 UI 등 <strong>주요 화면 스토리보드</strong> 작성 후 키스크린 설계 및 디자인/퍼블리싱 검토 후 개발 전달</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
-      <div class="comp-card-body">QA → 알파 테스트 → 출시 후 모니터링과 유지보수까지 <strong>전 과정 직접 수행</strong>, 실시간 오류 검증 문구 안내와 자동 포커싱 입력 편의성 등 사용성 이슈 반영</div>
-    </div>
-  </div>
-  <div class="result-box"><span>✅</span> 가입 단가 절감 + 추가 가입 유도 동시 달성, 데이터와 UX 개선이 함께 성장하는 것을 직접 확인한 실무 경험</div>
-  <div class="modal-divider"></div>
-   <div class="m-section-label">RESULT</div>
+<div class="modal-bar" style="background:linear-gradient(90deg,#060053,#9fadff);"></div>
+<span class="modal-emoji">📊</span>
+<div class="modal-title">카드사 GDN 서비스 가입 페이지</div>
+<div class="modal-subtitle">데이터로 맥락을 읽고 선택을 설계하는 가입 UX · 티오에스코리아</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
+<div class="modal-quote">카드사 제휴 신규 서비스가 출시되었지만 가입률이 기대 이하였습니다. <br/> <b>왜 가입자가 늘어나지 않는가?</b>라는 물음에서 시작해 데이터 기반으로 UX 전체를 재설계했습니다.</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">UX 기획 매니저</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획 · 디자인 · 개발팀</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">PPT · Confluence</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">100%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">Problem</div><div class="step-content">TM 및 웹 유도 가입에도 가입 전환율 저조<br/> <strong>낮은 전환율 / 복잡한 가입 프로세스 / 정보 전달 부족 / 높은 이탈률</strong> 4가지 문제 확인</div></div>
+<div class="step-row"><div class="step-label sl2">Research</div><div class="step-content">사용자 이탈 지점 <strong>데이터 분석</strong> → 퍼널 단계별 이탈 원인 파악 <br/> 사용자 유형 분석 및 행동 패턴 기반 타겟 세그먼트 도출</div></div>
+<div class="step-row"><div class="step-label sl3">Define</div><div class="step-content">① <strong>퍼널 최적화</strong> ② <strong>CTA 강화</strong> ③ <strong>UI/UX 최적화</strong> 3가지 전략 수립 <br/> 사용자 관점 + 비즈니스 관점 동시 설계</div></div>
+<div class="step-row"><div class="step-label sl4">Design</div><div class="step-content"><strong>1차 → 2차 → 최종</strong> 3회 반복 개선 (약관 간소화·위치 이동·자동 포커싱·크로스셀링 기능 추가) <br/> <strong>스토리보드</strong> 작성 및 개발팀 협업</div></div>
+<div class="step-row"><div class="step-label sl5">Test</div><div class="step-content"><b>QA 진행 → 알파 테스트 → 서비스 출시 운영</b> <br/>실시간 오류 검증 문구 안내 및 자동 포커싱을 통한 입력 편의성을 통한 사용성 검증, 반영</div></div>
+<div class="step-row"><div class="step-label sl6">Result</div><div class="step-content">UX/UI 개선 이후 <b>본인인증 횟수 5배 이상, 가입 전환율 400% 이상 상승</b> <br/> GDN 광고 단가 50%절감 + 크로스셀링 효과 동시 달성</div></div>
+</div>
+<div class="kpi-row">
+<div class="kpi-card"><div class="kpi-num">5배↑</div><div class="kpi-label">본인인증 성공 횟수</div></div>
+<div class="kpi-card"><div class="kpi-num">+438%</div><div class="kpi-label">일일 가입자 수 최대</div></div>
+<div class="kpi-card"><div class="kpi-num">↓30%</div><div class="kpi-label">광고 가입 단가 감소</div></div>
+<div class="kpi-card"><div class="kpi-num">~30%</div><div class="kpi-label">크로스셀링 전환율</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research</span></div>
+<div class="comp-card-body">사용자 이탈 지점 <strong>데이터 정량 분석</strong>으로 퍼널 단계별 문제 원인 도출. 광고 가입 단가 및 본인인증 횟수 등 수치 기반 의사결정</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Use Case</span></div>
+<div class="comp-card-body">카드사 가입 유저의 상황과 니즈를 기반으로 <strong>Use Case별 가입 시나리오</strong> 설계 → 기가입 및 카드 없음 등 엣지 케이스까지 보완</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
+<div class="comp-card-body">가입 장벽 최소화 + 전환율 극대화를 UX Direction으로 설정하고 <strong>퍼널 최적화/CTA 강화/UI 최적화</strong> 3가지 전략 축으로 컨셉 구체화</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">UI 설계 · Workflows</span></div>
+<div class="comp-card-body">1차→2차→최종 <strong>가입 프로세스 플로우</strong> 반복 설계, 약관 위치 이동 및 자동 포커싱과 크로스셀링 팝업 등 <strong>화면 정책 수립</strong></div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen Design</span></div>
+<div class="comp-card-body">카드사별 시그니처 컬러 배너, CTA 버튼, 약관 UI 등 <strong>주요 화면 스토리보드</strong> 작성 후 키스크린 설계 및 디자인/퍼블리싱 검토 후 개발 전달</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
+<div class="comp-card-body">QA → 알파 테스트 → 출시 후 모니터링과 유지보수까지 <strong>전 과정 직접 수행</strong>, 실시간 오류 검증 문구 안내와 자동 포커싱 입력 편의성 등 사용성 이슈 반영</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> UX/UI 개선 이후 본인인증 횟수 5배 이상, 가입 전환율 400% 이상 상승 · GDN 광고 단가 50% 절감 + 크로스셀링 효과 동시 달성</div>
+<div class="project-gallery">
+  <img src="P1_1.png" onclick="window.open(this.src)">
+  <img src="P1_2.png" onclick="window.open(this.src)">
+  <img src="P1_3.png" onclick="window.open(this.src)">
+  <img src="P1_4.png" onclick="window.open(this.src)">
+  <img src="P1_5.png" onclick="window.open(this.src)">
+</div>
 </div></div></div>
-
 <!-- ② 모이닷 MODAL -->
 <div class="modal-overlay" id="modal-moidot">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('moidot')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#5B7FA6,#93C5FD);"></div>
-  <span class="modal-emoji">🗺️</span>
-  <div class="modal-title">모이닷</div>
-  <div class="modal-subtitle">위치 기반 모임 관리 통합 플랫폼 · Side Project</div>
-  <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
-  <div class="modal-quote">"대학 생활에서 직접 겪은 모임 장소 선정의 비효율. 같은 불편함을 가진 팀원들과 모여 서비스를 기획하고 직접 런칭했습니다."</div>
-  <div class="modal-meta">
-    <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">기획팀장</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인·개발</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Notion · Slack</div></div>
-    <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">90%</div></div>
-  </div>
-
-  <div class="m-section-label">UX Process</div>
-  <div class="process-flow">
-    <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
-  </div>
-  <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">모임 중간 지점을 공평하게 정하기 어려움 / 세부 장소 탐색 번거로움 / 모임원 의견 취합 비효율.</div></div>
-    <div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content"><strong>설문조사 368명</strong>(정량) — 공평한 장소 선정 어려움 47.4% / 세부 장소 선정 33% / 의견 취합 17.2%. <strong>심층 인터뷰</strong>(정성) — 페르소나 3인 세부 니즈 파악. 경쟁사(위밋플레이스) 기능 비교 분석.</div></div>
-    <div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content"><strong>페르소나 + 저니맵</strong> 작성으로 핵심 페인 포인트 3가지 도출. MVP 기능과 베타 기능 범위 정의. 경쟁사 대비 차별점 3가지 확정.</div></div>
-    <div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>IA(정보 구조) 설계 → 플로우차트 → 기능명세서 → 시스템가이드 → UX/UI 디자인</strong>. 이용약관 작성. 애자일 협업 구조(Notion 기반 기능명세서 + 요청사항 실시간 관리)로 기획·디자인·개발 팀 간 소통 효율화.</div></div>
-    <div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">기획팀 <strong>1차 QA</strong> → 베타서비스 출시 → <strong>사용자 만족도 설문</strong>(사용 흐름·UI·발생 문제 항목별 검증) → 피드백 반영 → 웹/앱 정식 런칭.</div></div>
-    <div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">웹/앱 서비스 정식 런칭 및 인스타그램 기반 홍보 운영. 사용 소통창구 개설 및 유지보수 지속.</div></div>
-  </div>
-
-  <div class="modal-divider"></div>
-  <div class="m-section-label">Main Experience</div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
-      <div class="comp-card-body"><strong>정량</strong>: 설문조사 368명으로 문제 우선순위 수치화. <strong>정성</strong>: 심층 인터뷰로 행동·감정·맥락 파악. 두 방식을 병행해 리서치 신뢰도 강화.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Journey</span></div>
-      <div class="comp-card-body">페르소나 3인 설정 후 <strong>저니맵</strong> 작성 — 모임 약속 잡기부터 장소 확정까지 전 과정의 감정 곡선·페인 포인트·인사이트 도출.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Hi-Fi Prototype</span></div>
-      <div class="comp-card-body">"모임원 모두가 주체적으로 참여하는 통합 모임 관리"를 UX 방향으로 설정. Figma로 <strong>Hi-Fi 프로토타입</strong> 제작 후 베타 출시에 활용.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-ia">IA · Keyscreen · Workflows</span></div>
-      <div class="comp-card-body">로그인→스페이스 생성→위치 입력→장소 추천→투표→결과 공유 전 흐름의 <strong>IA 및 플로우차트</strong> 설계. 기능명세서로 화면별 정책·예외처리 문서화.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-design">시스템가이드 · VI</span></div>
-      <div class="comp-card-body">서비스 전체 <strong>시스템가이드</strong>(컬러·타이포·컴포넌트) 설계. 웹/앱 양쪽 대응하는 일관된 디자인 시스템 구축.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
-      <div class="comp-card-body">기획팀 주도 <strong>1차 QA</strong> 진행 → 베타 피드백 수집 → 개선 후 정식 런칭. 런칭 후 사용자 만족도 설문 분석으로 지속적 UX 개선 사이클 운영.</div>
-    </div>
-  </div>
-  <div class="result-box"><span>🏆</span> 학교 창업 지원 프로그램 선정 · 2024 위치정보 우수 비즈니스 모델 발굴 프로젝트 선정</div>
+<div class="modal-bar" style="background:linear-gradient(90deg,#ff7301,#fdd393);"></div>
+<span class="modal-emoji">🗺️</span>
+<div class="modal-title">모이닷</div>
+<div class="modal-subtitle">위치 기반 모임 관리 통합 플랫폼 · Side Project</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Web</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
+<div class="modal-quote">"대학 생활에서 직접 겪은 모임 장소 선정의 비효율. 같은 불편함을 가진 팀원들과 모여 서비스를 기획하고 직접 런칭했습니다."</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">기획팀장</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인·개발</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Notion · Slack</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">90%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">모임 중간 지점을 공평하게 정하기 어려움 / 세부 장소 탐색 번거로움 / 모임원 의견 취합 비효율.</div></div>
+<div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content"><strong>설문조사 368명</strong>(정량) — 공평한 장소 선정 어려움 47.4% / 세부 장소 선정 33% / 의견 취합 17.2%. <strong>심층 인터뷰</strong>(정성) — 페르소나 3인 세부 니즈 파악. 경쟁사(위밋플레이스) 기능 비교 분석.</div></div>
+<div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content"><strong>페르소나 + 저니맵</strong> 작성으로 핵심 페인 포인트 3가지 도출. MVP 기능과 베타 기능 범위 정의. 경쟁사 대비 차별점 3가지 확정.</div></div>
+<div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>IA(정보 구조) 설계 → 플로우차트 → 기능명세서 → 시스템가이드 → UX/UI 디자인</strong>. 이용약관 작성. 애자일 협업 구조(Notion 기반 기능명세서 + 요청사항 실시간 관리)로 기획·디자인·개발 팀 간 소통 효율화.</div></div>
+<div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">기획팀 <strong>1차 QA</strong> → 베타서비스 출시 → <strong>사용자 만족도 설문</strong>(사용 흐름·UI·발생 문제 항목별 검증) → 피드백 반영 → 웹/앱 정식 런칭.</div></div>
+<div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">웹/앱 서비스 정식 런칭 및 인스타그램 기반 홍보 운영. 사용 소통창구 개설 및 유지보수 지속.</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
+<div class="comp-card-body"><strong>정량</strong>: 설문조사 368명으로 문제 우선순위 수치화. <strong>정성</strong>: 심층 인터뷰로 행동·감정·맥락 파악. 두 방식을 병행해 리서치 신뢰도 강화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Journey</span></div>
+<div class="comp-card-body">페르소나 3인 설정 후 <strong>저니맵</strong> 작성 — 모임 약속 잡기부터 장소 확정까지 전 과정의 감정 곡선·페인 포인트·인사이트 도출.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Hi-Fi Prototype</span></div>
+<div class="comp-card-body">"모임원 모두가 주체적으로 참여하는 통합 모임 관리"를 UX 방향으로 설정. Figma로 <strong>Hi-Fi 프로토타입</strong> 제작 후 베타 출시에 활용.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">IA · Keyscreen · Workflows</span></div>
+<div class="comp-card-body">로그인→스페이스 생성→위치 입력→장소 추천→투표→결과 공유 전 흐름의 <strong>IA 및 플로우차트</strong> 설계. 기능명세서로 화면별 정책·예외처리 문서화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">시스템가이드 · VI</span></div>
+<div class="comp-card-body">서비스 전체 <strong>시스템가이드</strong>(컬러·타이포·컴포넌트) 설계. 웹/앱 양쪽 대응하는 일관된 디자인 시스템 구축.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
+<div class="comp-card-body">기획팀 주도 <strong>1차 QA</strong> 진행 → 베타 피드백 수집 → 개선 후 정식 런칭. 런칭 후 사용자 만족도 설문 분석으로 지속적 UX 개선 사이클 운영.</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> 학교 창업 지원 프로그램 선정 · 2024 위치정보 우수 비즈니스 모델 발굴 프로젝트 선정</div>
+<div class="project-gallery">
+  <img src="P2_1.png" onclick="window.open(this.src)">
+  <img src="P2_2.png" onclick="window.open(this.src)">
+  <img src="P2_3.png" onclick="window.open(this.src)">
+  <img src="P2_4.png" onclick="window.open(this.src)">
+  <img src="P2_5.png" onclick="window.open(this.src)">
+</div>
 </div></div></div>
-
 <!-- ③ POOMY MODAL -->
 <div class="modal-overlay" id="modal-poomy">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('poomy')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#6B8F71,#86EFAC);"></div>
-  <span class="modal-emoji">🍀</span>
-  <div class="modal-title">POOMY</div>
-  <div class="modal-subtitle">소품으로 연결되는 취향 공간 플랫폼 · Side Project</div>
-  <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
-  <div class="modal-quote">"소품샵 정보가 SNS·블로그에 파편화된 문제에서 출발. 서울 전 지역 소품샵을 직접 답사하며 데이터를 쌓고 서비스를 만들었습니다."</div>
-  <div class="modal-meta">
-    <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">기획팀장</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인·개발</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Notion · AI</div></div>
-    <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">90%</div></div>
-  </div>
-
-  <div class="m-section-label">UX Process</div>
-  <div class="process-flow">
-    <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
-  </div>
-  <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">소품샵 정보 파편화 / 취향 필터링 부재 / 상세 정보 부족 / 취향 공유 커뮤니티 없음.</div></div>
-    <div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content"><strong>설문조사 145명</strong>(정량) — 취향 필터링 부재 40% / 상세 정보 부족 35% / 직접 방문해야 알 수 있는 정보 25%. <strong>서울 전 지역 소품샵 현장 답사</strong>(정성) — 위치·영업시간·분위기·특징 데이터 직접 수집.</div></div>
-    <div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content">핵심 기능 3가지 정의 + 서비스 컨셉 "사용자의 불편함을 즐거움으로" 확정. 회원가입 시 취향 온보딩으로 <strong>맞춤형 첫 경험</strong> 설계 방향 수립.</div></div>
-    <div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>IA 설계 → 기능명세서 → 화면 기획</strong>. 기획 단계에서 디자인·개발과 논의 필요한 부분을 "논의 필요 / 협의 완료 / 일부 수정" 상태로 별도 표기해 협업 효율 극대화.</div></div>
-    <div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">기획팀 <strong>1차 QA</strong> → iOS/Android 배포. 인스타그램 브랜드 스토리 콘텐츠 제작 및 홍보 전략 실행.</div></div>
-    <div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">iOS/Android 앱 정식 출시. 취향 기반 뉴스레터 정기 발행 및 사용자 커뮤니티 운영.</div></div>
-  </div>
-
-  <div class="modal-divider"></div>
-  <div class="m-section-label">Main Experience</div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
-      <div class="comp-card-body"><strong>정량</strong>: 설문 145명으로 불편 원인 수치화. <strong>정성</strong>: 서울 전 지역 소품샵 <strong>현장 답사</strong>로 실제 운영 환경·분위기·위치 데이터 직접 수집 — 문헌 조사 불가 영역을 발로 채운 리서치.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Mental Model</span></div>
-      <div class="comp-card-body">소품샵 탐색 시 사용자의 <strong>Mental Model</strong>(취향→검색→방문→공유) 파악. 온보딩에서 취향 선택 → 홈 맞춤화 → 뉴스레터 추천까지 <strong>사용자 스토리 기반 서비스 흐름</strong> 설계.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
-      <div class="comp-card-body">"취향 기반 탐색"을 핵심 UX Direction으로 설정. 분위기·장소·키워드 필터 + 소품샵 로드 뉴스레터라는 <strong>두 가지 탐색 경험 레이어</strong>로 컨셉 구체화.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-ia">IA · Workflows · 정책 수립</span></div>
-      <div class="comp-card-body">홈→검색→필터→소품샵 상세→리뷰→찜→마이페이지 전 흐름 <strong>IA 설계</strong>. 기능명세서에 인기 검색어 정렬 기준·추천 키워드 방식 등 <strong>서비스 정책</strong> 문서화.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 시스템가이드</span></div>
-      <div class="comp-card-body">온보딩·홈·검색·소품샵 상세·뉴스레터·리뷰 등 전 화면 <strong>Keyscreen 설계</strong>. Pretendard 기반 <strong>타이포 시스템가이드</strong> 수립 및 일관된 컴포넌트 체계 구축.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
-      <div class="comp-card-body">기획 단계에서 <strong>디자인·개발 논의 필요 사항을 상태별로 표기</strong>해 이슈를 선제적으로 관리. 1차 QA 후 iOS/Android 배포 진행.</div>
-    </div>
-  </div>
-  <div class="result-box"><span>🏆</span> 학교 창업 지원 프로그램 선정</div>
+<div class="modal-bar" style="background:linear-gradient(90deg,#6B8F71,#86EFAC);"></div>
+<span class="modal-emoji">🍀</span>
+<div class="modal-title">POOMY</div>
+<div class="modal-subtitle">소품으로 연결되는 취향 공간 플랫폼 · Side Project</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">App</span><span class="tag">BM</span><span class="tag">QA</span></div>
+<div class="modal-quote">"소품샵 정보가 SNS·블로그에 파편화된 문제에서 출발. 서울 전 지역 소품샵을 직접 답사하며 데이터를 쌓고 서비스를 만들었습니다."</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">기획팀장</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인·개발</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Notion · AI</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">90%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">소품샵 정보 파편화 / 취향 필터링 부재 / 상세 정보 부족 / 취향 공유 커뮤니티 없음.</div></div>
+<div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content"><strong>설문조사 145명</strong>(정량) — 취향 필터링 부재 40% / 상세 정보 부족 35% / 직접 방문해야 알 수 있는 정보 25%. <strong>서울 전 지역 소품샵 현장 답사</strong>(정성) — 위치·영업시간·분위기·특징 데이터 직접 수집.</div></div>
+<div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content">핵심 기능 3가지 정의 + 서비스 컨셉 "사용자의 불편함을 즐거움으로" 확정. 회원가입 시 취향 온보딩으로 <strong>맞춤형 첫 경험</strong> 설계 방향 수립.</div></div>
+<div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>IA 설계 → 기능명세서 → 화면 기획</strong>. 기획 단계에서 디자인·개발과 논의 필요한 부분을 "논의 필요 / 협의 완료 / 일부 수정" 상태로 별도 표기해 협업 효율 극대화.</div></div>
+<div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">기획팀 <strong>1차 QA</strong> → iOS/Android 배포. 인스타그램 브랜드 스토리 콘텐츠 제작 및 홍보 전략 실행.</div></div>
+<div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">iOS/Android 앱 정식 출시. 취향 기반 뉴스레터 정기 발행 및 사용자 커뮤니티 운영.</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research (정량·정성)</span></div>
+<div class="comp-card-body"><strong>정량</strong>: 설문 145명으로 불편 원인 수치화. <strong>정성</strong>: 서울 전 지역 소품샵 <strong>현장 답사</strong>로 실제 운영 환경·분위기·위치 데이터 직접 수집 — 문헌 조사 불가 영역을 발로 채운 리서치.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Mental Model</span></div>
+<div class="comp-card-body">소품샵 탐색 시 사용자의 <strong>Mental Model</strong>(취향→검색→방문→공유) 파악. 온보딩에서 취향 선택 → 홈 맞춤화 → 뉴스레터 추천까지 <strong>사용자 스토리 기반 서비스 흐름</strong> 설계.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
+<div class="comp-card-body">"취향 기반 탐색"을 핵심 UX Direction으로 설정. 분위기·장소·키워드 필터 + 소품샵 로드 뉴스레터라는 <strong>두 가지 탐색 경험 레이어</strong>로 컨셉 구체화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">IA · Workflows · 정책 수립</span></div>
+<div class="comp-card-body">홈→검색→필터→소품샵 상세→리뷰→찜→마이페이지 전 흐름 <strong>IA 설계</strong>. 기능명세서에 인기 검색어 정렬 기준·추천 키워드 방식 등 <strong>서비스 정책</strong> 문서화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 시스템가이드</span></div>
+<div class="comp-card-body">온보딩·홈·검색·소품샵 상세·뉴스레터·리뷰 등 전 화면 <strong>Keyscreen 설계</strong>. Pretendard 기반 <strong>타이포 시스템가이드</strong> 수립 및 일관된 컴포넌트 체계 구축.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
+<div class="comp-card-body">기획 단계에서 <strong>디자인·개발 논의 필요 사항을 상태별로 표기</strong>해 이슈를 선제적으로 관리. 1차 QA 후 iOS/Android 배포 진행.</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> 학교 창업 지원 프로그램 선정</div>
+<div class="project-gallery">
+  <img src="P5_1.png" onclick="window.open(this.src)">
+  <img src="P5_2.png" onclick="window.open(this.src)">
+  <img src="P5_3.png" onclick="window.open(this.src)">
+  <img src="P5_4.png" onclick="window.open(this.src)">
+  <img src="P5_5.png" onclick="window.open(this.src)">
+  <img src="P5_6.png" onclick="window.open(this.src)">
+  <img src="P5_7.png" onclick="window.open(this.src)">
+</div>
 </div></div></div>
-
 <!-- ④ PAIRY MODAL -->
 <div class="modal-overlay" id="modal-pairy">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('pairy')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#7C5FBF,#D8B4FE);"></div>
-  <span class="modal-emoji">🤖</span>
-  <div class="modal-title">Pairy (페어리)</div>
-  <div class="modal-subtitle">청년 1인 가구를 위한 스마트홈 AI 서비스 · LG 연계 프로젝트</div>
-  <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
-  <div class="modal-quote">"청년 1인 가구의 외로움·무기력·불안이라는 감성적 문제를, 기억 기반 AI 대화와 공간별 맞춤 서비스로 풀어낸 스마트홈 AI 제품 서비스입니다."</div>
-  <div class="modal-meta">
-    <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">팀장</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · After Effects</div></div>
-    <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">95%</div></div>
-  </div>
-
-  <div class="m-section-label">UX Process</div>
-  <div class="process-flow">
-    <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
-  </div>
-  <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">청년 1인 가구의 고독·외로움·무기력 심화. <strong>대화 상대 부재</strong>와 <strong>자기 관리 어려움</strong> 두 가지 핵심 고통 확인.</div></div>
-    <div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">20~30대 1인 가구 <strong>총 29명</strong> — 심층 설문 + <strong>Probe 조사</strong>(감정카드·무브먼트라인). 4개 세그먼트 분류. 행동 패턴 분석 매트릭스로 세그먼트 간 차이 시각화.</div></div>
-    <div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content"><strong>핵심 니즈 5가지</strong>(유대감·안전성·편리성·계획성·성취) 도출. <strong>KANO 모델</strong>로 기능 우선순위 분류. 메인 타겟 2030 직장인 1인 가구 페르소나 수립.</div></div>
-    <div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content">기억 기반 감정 대화 <strong>0→3단계 성장 구조</strong> 설계 + 공간 이동형 디스플레이(거치형·흡착형). 사용자 유형 4가지 세분화 서비스. <strong>블루프린트·서비스 시나리오</strong> 수립. BM 캔버스 작성.</div></div>
-    <div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">앱 <strong>프로토타입</strong> 제작 → 사용자 시나리오 기반 검증. 서비스 소개 영상 제작(Adobe After Effects).</div></div>
-    <div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">제품(하드웨어)+앱 서비스 통합 설계 완성. 비즈니스 모델 수립. 학술발표대회 우수상.</div></div>
-  </div>
-
-  <div class="modal-divider"></div>
-  <div class="m-section-label">Main Experience</div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
-      <div class="comp-card-body">감정카드·무브먼트라인 등 <strong>Probe 기법</strong>으로 사용자 내면 심리와 공간별 니즈 파악. 단순 설문 넘어 <strong>행동·감정·공간</strong>을 입체적으로 포착한 정성 리서치.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-story">Mental Model · Journey</span></div>
-      <div class="comp-card-body">2030 직장인 하루 루틴(출근 전→출근 후→퇴근 후) 전체를 <strong>저니맵</strong>으로 시각화. 시간대별 감정 곡선·페인 포인트·인사이트·서비스 개입 지점 도출.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Hi-Fi Prototype</span></div>
-      <div class="comp-card-body">"친구와 친해지는 과정"을 서비스 UX 방향으로 설정. <strong>0단계 서먹→3단계 단짝</strong> 성장 구조로 컨셉 구체화. Figma Hi-Fi 프로토타입 제작.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-ia">Workflows · 정책 수립</span></div>
-      <div class="comp-card-body">현관·거실·부엌·침실·책상·화장실 <strong>공간별 서비스 시나리오</strong> 및 기능 정의. 사용자 유형 4가지(재미추구형·정리계획형·감정공유형·프로상담형)별 정책 수립.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 서비스 시나리오</span></div>
-      <div class="comp-card-body">앱 주요 화면(온보딩·대화·투두·감정통계) <strong>Keyscreen</strong> 설계. <strong>블루프린트</strong>로 프론트·백스테이지 서비스 흐름 시각화. 서비스 소개 영상 직접 제작.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-qa">BM · 사업화 관점</span></div>
-      <div class="comp-card-body">린 캔버스 기반 <strong>비즈니스 모델</strong> 수립 — 물품 판매(30~40만원) + 온라인 상품 구매 수수료 + 캐릭터 커스텀 판매 등 수익 구조 설계.</div>
-    </div>
-  </div>
-  <div class="result-box"><span>🏆</span> 2023 가을 대학생 디자인 학술발표대회 우수상 (한국디자인학회)</div>
+<div class="modal-bar" style="background:linear-gradient(90deg,#7C5FBF,#D8B4FE);"></div>
+<span class="modal-emoji">🤖</span>
+<div class="modal-title">Pairy (페어리)</div>
+<div class="modal-subtitle">청년 1인 가구를 위한 스마트홈 AI 서비스 · LG 연계 프로젝트</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">AI</span><span class="tag">BM</span></div>
+<div class="modal-quote">"청년 1인 가구의 외로움·무기력·불안이라는 감성적 문제를, 기억 기반 AI 대화와 공간별 맞춤 서비스로 풀어낸 스마트홈 AI 제품 서비스입니다."</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">팀장</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · After Effects</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">95%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">청년 1인 가구의 고독·외로움·무기력 심화. <strong>대화 상대 부재</strong>와 <strong>자기 관리 어려움</strong> 두 가지 핵심 고통 확인.</div></div>
+<div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">20~30대 1인 가구 <strong>총 29명</strong> — 심층 설문 + <strong>Probe 조사</strong>(감정카드·무브먼트라인). 4개 세그먼트 분류. 행동 패턴 분석 매트릭스로 세그먼트 간 차이 시각화.</div></div>
+<div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content"><strong>핵심 니즈 5가지</strong>(유대감·안전성·편리성·계획성·성취) 도출. <strong>KANO 모델</strong>로 기능 우선순위 분류. 메인 타겟 2030 직장인 1인 가구 페르소나 수립.</div></div>
+<div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content">기억 기반 감정 대화 <strong>0→3단계 성장 구조</strong> 설계 + 공간 이동형 디스플레이(거치형·흡착형). 사용자 유형 4가지 세분화 서비스. <strong>블루프린트·서비스 시나리오</strong> 수립. BM 캔버스 작성.</div></div>
+<div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">앱 <strong>프로토타입</strong> 제작 → 사용자 시나리오 기반 검증. 서비스 소개 영상 제작(Adobe After Effects).</div></div>
+<div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">제품(하드웨어)+앱 서비스 통합 설계 완성. 비즈니스 모델 수립. 학술발표대회 우수상.</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
+<div class="comp-card-body">감정카드·무브먼트라인 등 <strong>Probe 기법</strong>으로 사용자 내면 심리와 공간별 니즈 파악. 단순 설문 넘어 <strong>행동·감정·공간</strong>을 입체적으로 포착한 정성 리서치.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">Mental Model · Journey</span></div>
+<div class="comp-card-body">2030 직장인 하루 루틴(출근 전→출근 후→퇴근 후) 전체를 <strong>저니맵</strong>으로 시각화. 시간대별 감정 곡선·페인 포인트·인사이트·서비스 개입 지점 도출.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Hi-Fi Prototype</span></div>
+<div class="comp-card-body">"친구와 친해지는 과정"을 서비스 UX 방향으로 설정. <strong>0단계 서먹→3단계 단짝</strong> 성장 구조로 컨셉 구체화. Figma Hi-Fi 프로토타입 제작.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">Workflows · 정책 수립</span></div>
+<div class="comp-card-body">현관·거실·부엌·침실·책상·화장실 <strong>공간별 서비스 시나리오</strong> 및 기능 정의. 사용자 유형 4가지(재미추구형·정리계획형·감정공유형·프로상담형)별 정책 수립.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 서비스 시나리오</span></div>
+<div class="comp-card-body">앱 주요 화면(온보딩·대화·투두·감정통계) <strong>Keyscreen</strong> 설계. <strong>블루프린트</strong>로 프론트·백스테이지 서비스 흐름 시각화. 서비스 소개 영상 직접 제작.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">BM · 사업화 관점</span></div>
+<div class="comp-card-body">린 캔버스 기반 <strong>비즈니스 모델</strong> 수립 — 물품 판매(30~40만원) + 온라인 상품 구매 수수료 + 캐릭터 커스텀 판매 등 수익 구조 설계.</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> 2023 가을 대학생 디자인 학술발표대회 우수상 (한국디자인학회)</div>
+<div class="project-gallery">
+  <img src="P3_1.png" onclick="window.open(this.src)">
+  <img src="P3_2.png" onclick="window.open(this.src)">
+  <img src="P3_3.png" onclick="window.open(this.src)">
+  <img src="P3_4.png" onclick="window.open(this.src)">
+  <img src="P3_5.png" onclick="window.open(this.src)">
+</div>
 </div></div></div>
-
+<!-- ⑤ skt MODAL -->
+<div class="modal-overlay" id="modal-skt">
+<div class="modal"><div class="modal-close"><button onclick="closeModal('skt')">✕</button></div>
+<div class="modal-inner">
+<div class="modal-bar" style="background:linear-gradient(90deg,#d906ce,#fd77c58c);"></div>
+<span class="modal-emoji">🔐</span>
+<div class="modal-title">SKT 한번에안심서비스</div>
+<div class="modal-subtitle">가족 금융사기 예방 필수 안심 플랫폼 · 실무</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">B2C</span><span class="tag">In-App</span><span class="tag">BM</span><span class="tag">QA</span><span class="tag">실무</span></div>
+<div class="modal-quote">"금융사기 위험을 한 번에 관리할 수 있도록 설계하고, 개인과 가족 모두를 안전하게 보호하는 서비스를 기획했습니다."</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">UX 기획 매니저</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획 · 디자인 · 개발팀</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">PPT · Confluence</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">100%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">금융사기 피해 증가 속 <strong>가족 단위 예방 서비스 부재</strong>. 기존 서비스는 개인 단위에 국한되어 가족 전체 보호 경험 미흡.</div></div>
+<div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">금융사기 유형별 사용자 피해 패턴 분석. <strong>PASS 앱 인앱 연동</strong> 구조 조사 및 경쟁 서비스 분석.</div></div>
+<div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content"><strong>개인 + 가족</strong> 이중 보호 구조로 서비스 방향 설정. 어드민 운영 연결 및 원앱(PASS) 연동 전략 수립.</div></div>
+<div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content">가족 등록 플로우 · 알림 정책 · 어드민 기획. <strong>PASS 인앱 연동 UX</strong> 설계 및 스토리보드 작성.</div></div>
+<div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">QA 진행 → 알파 테스트 → 서비스 출시 운영. 출시 후 모니터링 및 유지보수.</div></div>
+<div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">월간 가입자 <strong>3,000명 이상</strong> 달성. 어드민 기획 운영 연결 및 PASS 원앱 연동 완료.</div></div>
+</div>
+<div class="kpi-row">
+<div class="kpi-card"><div class="kpi-num">3000명↑</div><div class="kpi-label">월간 가입자</div></div>
+<div class="kpi-card"><div class="kpi-num">어드민</div><div class="kpi-label">운영 연결 기획</div></div>
+<div class="kpi-card"><div class="kpi-num">PASS인앱</div><div class="kpi-label">원앱 연동</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research</span></div>
+<div class="comp-card-body">금융사기 유형별 피해 패턴 분석 및 타겟 사용자 행동 파악. <strong>가족 단위 UX</strong>를 고려한 멀티 유저 시나리오 설계.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Use Case</span></div>
+<div class="comp-card-body">개인 가입자·가족 구성원·어드민 운영자 등 <strong>다중 사용자 시나리오</strong> 설계. 엣지 케이스(가족 미동의, 중복 가입 등) 정책 수립.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
+<div class="comp-card-body">"한 번에 안심"이라는 서비스 컨셉 구체화. <strong>개인 보호 + 가족 보호</strong>를 단일 인터페이스에서 제공하는 통합 경험 설계.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">IA · Workflows · 정책 수립</span></div>
+<div class="comp-card-body">가족 등록 → 보호 설정 → 알림 관리 전 흐름 <strong>IA 및 플로우차트</strong> 설계. 화면별 정책·알림 기준·예외처리 문서화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 어드민 기획</span></div>
+<div class="comp-card-body">사용자 앱 주요 화면 + <strong>어드민 운영 화면</strong> 스토리보드 작성. PASS 인앱 연동 UX 설계로 기존 사용자 진입 장벽 최소화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">개발 F/U · QA</span></div>
+<div class="comp-card-body">QA → 알파 테스트 → 출시 전 과정 직접 수행. <strong>런칭 후 모니터링·유지보수</strong>로 안정적 서비스 운영.</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> 월간 가입자 3,000명 이상 달성 · PASS 인앱 연동 및 어드민 운영 연결 완료</div>
+<div class="project-gallery">
+  <img src="P4_1.png" onclick="window.open(this.src)">
+  <img src="P4_2.png" onclick="window.open(this.src)">
+  <img src="P4_3.png" onclick="window.open(this.src)">
+  <img src="P4_4.png" onclick="window.open(this.src)">
+  <img src="P4_5.png" onclick="window.open(this.src)">
+</div>
+</div></div></div>
 <!-- ⑤ 키도미도 MODAL -->
 <div class="modal-overlay" id="modal-kido">
 <div class="modal"><div class="modal-close"><button onclick="closeModal('kido')">✕</button></div>
 <div class="modal-inner">
-  <div class="modal-bar" style="background:linear-gradient(90deg,#D97706,#FCD34D);"></div>
-  <span class="modal-emoji">🏠</span>
-  <div class="modal-title">키도미도</div>
-  <div class="modal-subtitle">온 가족을 위한 올바른 스마트폰 사용 도우미 · 소셜 서비스 디자인</div>
-  <div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">App</span><span class="tag">BM</span></div>
-  <div class="modal-quote">"일방적 통제가 아니라 가족 간 소통으로 공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 풀었습니다."</div>
-  <div class="modal-meta">
-    <div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">팀장</div></div>
-    <div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인</div></div>
-    <div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Fusion 360</div></div>
-    <div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">95%</div></div>
-  </div>
-
-  <div class="m-section-label">UX Process</div>
-  <div class="process-flow">
-    <span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
-  </div>
-  <div class="step-rows">
-    <div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">영유아 미디어 과의존 심화. 일방적 통제 → 자녀 반발심 → 가족 갈등. 부모·자녀 간 스마트폰 인식 차이 확인.</div></div>
-    <div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">초등생 자녀 둔 부모 <strong>대면 인터뷰</strong> + <strong>Probe 조사</strong>(감정카드·무브먼트라인). 부모/자녀 메인·서브 페르소나 제작 + 저니맵 작성.</div></div>
-    <div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content">해결 방향 전환: <strong>일방향 통제 → 쌍방향 소통 기반 공동 목표</strong>. KANO 모델로 기능 우선순위 분류. 부모·자녀 분리 UI 전략 수립.</div></div>
-    <div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>앱(부모·자녀 분리 UI) + 스마트 토이 연동</strong> 구조 설계. 미션→패턴 암호→경험치→레벨업 <strong>게이미피케이션</strong> 기획. 시스템가이드·와이어프레임 작성. BM 수립.</div></div>
-    <div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">서비스 시나리오 및 <strong>프로토타입</strong> 기반 사용자 흐름 검증. 브랜딩·서비스 영상 제작.</div></div>
-    <div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">소셜 임팩트 서비스 디자인 완성. 미디어 교육 문제를 UX 관점으로 해결한 사례.</div></div>
-  </div>
-
-  <div class="modal-divider"></div>
-  <div class="m-section-label">Main Experience</div>
-  <div class="comp-grid">
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
-      <div class="comp-card-body">부모 대면 인터뷰 + Probe 조사로 <strong>두 타겟(부모·자녀) 동시 리서치</strong>. 서로 다른 입장을 가진 멀티 유저 환경에서의 리서치 경험 — 차량 내 운전자·동승자처럼 복수 사용자 UX와 연결.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Journey</span></div>
-      <div class="comp-card-body">부모·자녀 각각의 <strong>저니맵</strong> 작성 — 출근 전·등교 후·퇴근 후 전 과정에서 스마트폰 갈등이 발생하는 터치포인트와 감정 곡선 도출.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
-      <div class="comp-card-body">"통제에서 소통으로"라는 UX Direction 전환. 게이미피케이션(미션→레벨업)을 통해 <strong>자발적 참여를 유도하는 경험</strong> 컨셉 설계.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-ia">IA · Workflows · 정책</span></div>
-      <div class="comp-card-body">부모/자녀 <strong>분리 IA</strong> 설계 — 같은 앱이지만 역할에 따라 다른 화면 구조. 미션 설정·투표·패턴 암호 입력 등 <strong>상호작용 플로우</strong> 문서화.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 시스템가이드</span></div>
-      <div class="comp-card-body">부모/자녀 각각의 홈·미션·리워드 화면 <strong>Keyscreen 설계</strong>. 스마트 토이 물리 제품 디자인(Fusion 360)까지 연결되는 <strong>통합 브랜드 시스템</strong> 구축.</div>
-    </div>
-    <div class="comp-card">
-      <div class="comp-card-header"><span class="comp-badge cb-qa">BM · 멀티디바이스 연동</span></div>
-      <div class="comp-card-body">앱 + 스마트 토이 <strong>멀티디바이스 연동 구조</strong> 설계 — IoT 환경에서의 UX 기획 경험. 차량 내 SDV 환경(HMI + 모바일 연동)과 구조적으로 유사.</div>
-    </div>
-  </div>
+<div class="modal-bar" style="background:linear-gradient(90deg,#D97706,#FCD34D);"></div>
+<span class="modal-emoji">🏠</span>
+<div class="modal-title">키도미도</div>
+<div class="modal-subtitle">온 가족을 위한 올바른 스마트폰 사용 도우미 · 소셜 서비스 디자인</div>
+<div class="modal-tags"><span class="tag">UX/UI</span><span class="tag">Product</span><span class="tag">App</span><span class="tag">BM</span></div>
+<div class="modal-quote">"일방적 통제가 아니라 가족 간 소통으로 공동 목표를 설정하고 함께 성장하는 방향으로 스마트폰 과의존 문제를 풀었습니다."</div>
+<div class="modal-meta">
+<div class="meta-item"><div class="meta-key">역할</div><div class="meta-val">팀장</div></div>
+<div class="meta-item"><div class="meta-key">팀 구성</div><div class="meta-val">기획·디자인</div></div>
+<div class="meta-item"><div class="meta-key">툴</div><div class="meta-val">Figma · Fusion 360</div></div>
+<div class="meta-item"><div class="meta-key">기여도</div><div class="meta-val">95%</div></div>
+</div>
+<div class="m-section-label">UX Process</div>
+<div class="process-flow">
+<span class="pf pf1">🔍 Problem</span><span class="pf-arr">→</span><span class="pf pf2">📊 Research</span><span class="pf-arr">→</span><span class="pf pf3">🎯 Define</span><span class="pf-arr">→</span><span class="pf pf4">✏️ Design</span><span class="pf-arr">→</span><span class="pf pf5">🧪 Test</span><span class="pf-arr">→</span><span class="pf pf6">📈 Result</span>
+</div>
+<div class="step-rows">
+<div class="step-row"><div class="step-label sl1">🔍 Problem</div><div class="step-content">영유아 미디어 과의존 심화. 일방적 통제 → 자녀 반발심 → 가족 갈등. 부모·자녀 간 스마트폰 인식 차이 확인.</div></div>
+<div class="step-row"><div class="step-label sl2">📊 Research</div><div class="step-content">초등생 자녀 둔 부모 <strong>대면 인터뷰</strong> + <strong>Probe 조사</strong>(감정카드·무브먼트라인). 부모/자녀 메인·서브 페르소나 제작 + 저니맵 작성.</div></div>
+<div class="step-row"><div class="step-label sl3">🎯 Define</div><div class="step-content">해결 방향 전환: <strong>일방향 통제 → 쌍방향 소통 기반 공동 목표</strong>. KANO 모델로 기능 우선순위 분류. 부모·자녀 분리 UI 전략 수립.</div></div>
+<div class="step-row"><div class="step-label sl4">✏️ Design</div><div class="step-content"><strong>앱(부모·자녀 분리 UI) + 스마트 토이 연동</strong> 구조 설계. 미션→패턴 암호→경험치→레벨업 <strong>게이미피케이션</strong> 기획. 시스템가이드·와이어프레임 작성. BM 수립.</div></div>
+<div class="step-row"><div class="step-label sl5">🧪 Test</div><div class="step-content">서비스 시나리오 및 <strong>프로토타입</strong> 기반 사용자 흐름 검증. 브랜딩·서비스 영상 제작.</div></div>
+<div class="step-row"><div class="step-label sl6">📈 Result</div><div class="step-content">소셜 임팩트 서비스 디자인 완성. 미디어 교육 문제를 UX 관점으로 해결한 사례.</div></div>
+</div>
+<div class="modal-divider"></div>
+<div class="m-section-label">Main Experience</div>
+<div class="comp-grid">
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-research">User Research (정성)</span></div>
+<div class="comp-card-body">부모 대면 인터뷰 + Probe 조사로 <strong>두 타겟(부모·자녀) 동시 리서치</strong>. 서로 다른 입장을 가진 멀티 유저 환경에서의 리서치 경험 — 차량 내 운전자·동승자처럼 복수 사용자 UX와 연결.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-story">User Stories · Journey</span></div>
+<div class="comp-card-body">부모·자녀 각각의 <strong>저니맵</strong> 작성 — 출근 전·등교 후·퇴근 후 전 과정에서 스마트폰 갈등이 발생하는 터치포인트와 감정 곡선 도출.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-concept">UX Concept · Direction</span></div>
+<div class="comp-card-body">"통제에서 소통으로"라는 UX Direction 전환. 게이미피케이션(미션→레벨업)을 통해 <strong>자발적 참여를 유도하는 경험</strong> 컨셉 설계.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-ia">IA · Workflows · 정책</span></div>
+<div class="comp-card-body">부모/자녀 <strong>분리 IA</strong> 설계 — 같은 앱이지만 역할에 따라 다른 화면 구조. 미션 설정·투표·패턴 암호 입력 등 <strong>상호작용 플로우</strong> 문서화.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-design">Keyscreen · 시스템가이드</span></div>
+<div class="comp-card-body">부모/자녀 각각의 홈·미션·리워드 화면 <strong>Keyscreen 설계</strong>. 스마트 토이 물리 제품 디자인(Fusion 360)까지 연결되는 <strong>통합 브랜드 시스템</strong> 구축.</div>
+</div>
+<div class="comp-card">
+<div class="comp-card-header"><span class="comp-badge cb-qa">BM · 멀티디바이스 연동</span></div>
+<div class="comp-card-body">앱 + 스마트 토이 <strong>멀티디바이스 연동 구조</strong> 설계 — IoT 환경에서의 UX 기획 경험. 차량 내 SDV 환경(HMI + 모바일 연동)과 구조적으로 유사.</div>
+</div>
+</div>
+<div class="result-box"><span>🏆</span> 2023 가을 대학생 디자인 학술발표대회 우수상 (한국디자인학회)</div>
+<div class="project-gallery">
+  <img src="P6_1.png" onclick="window.open(this.src)">
+  <img src="P6_2.png" onclick="window.open(this.src)">
+  <img src="P6_3.png" onclick="window.open(this.src)">
+  <img src="P6_4.png" onclick="window.open(this.src)">
+  <img src="P6_5.png" onclick="window.open(this.src)">
+</div>
 </div></div></div>
-
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 function openModal(id){
-  const o=document.getElementById('modal-'+id);
-  o.classList.add('open');
-  document.body.style.overflow='hidden';
-  o.querySelector('.modal').scrollTop=0;
-}
-function closeModal(id){
-  document.getElementById('modal-'+id).classList.remove('open');
-  document.body.style.overflow='';
-}
-document.querySelectorAll('.modal-overlay').forEach(o=>{
-  o.addEventListener('click',e=>{
-    if(e.target===o){o.classList.remove('open');document.body.style.overflow='';}
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.classList.remove('open');
   });
-});
-document.addEventListener('keydown',e=>{
-  if(e.key==='Escape'){
-    document.querySelectorAll('.modal-overlay.open').forEach(o=>{
-      o.classList.remove('open');document.body.style.overflow='';
-    });
+
+  const target = document.getElementById('modal-' + id);
+  if(target){
+    target.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
+}
+
+function closeModal(id){
+  const target = document.getElementById('modal-' + id);
+  if(target){
+    target.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', function(e){
+    if(e.target === overlay){
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
 });
 </script>
 </body>
