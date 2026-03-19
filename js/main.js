@@ -3,7 +3,6 @@
    모달 + 라이트박스 + Hero 모션
    ═══════════════════════════════════════ */
 
-/* ─── 프로젝트 모달 ─── */
 function openModal(id) {
   document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
   const target = document.getElementById('modal-' + id);
@@ -20,11 +19,8 @@ function closeModal(id) {
   }
 }
 
-/* ─── 라이트박스 슬라이더 ─── */
 let lbImages = [], lbIndex = 0;
-const lb = document.getElementById('lightbox');
-const lbImg = document.getElementById('lb-img');
-const lbCounter = document.getElementById('lb-counter');
+let lb, lbImg, lbCounter;
 
 function openLightbox(imgs, startIndex) {
   lbImages = imgs; lbIndex = startIndex;
@@ -47,7 +43,6 @@ function renderLb() {
 function lbPrev() { lbIndex = (lbIndex - 1 + lbImages.length) % lbImages.length; renderLb(); }
 function lbNext() { lbIndex = (lbIndex + 1) % lbImages.length; renderLb(); }
 
-/* ─── 숫자 카운트업 ─── */
 function countUp(el) {
   const target = parseInt(el.dataset.target);
   const suffix = el.dataset.suffix || '';
@@ -66,25 +61,21 @@ function countUp(el) {
   }, step);
 }
 
-/* ─── 배경 파티클 (Canvas) ─── */
 function initParticles() {
   const canvas = document.getElementById('hero-canvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let W, H, particles;
-
   function resize() {
     W = canvas.width  = canvas.offsetWidth;
     H = canvas.height = canvas.offsetHeight;
   }
-
   function createParticles() {
     particles = [];
     const count = Math.floor(W / 18);
     for (let i = 0; i < count; i++) {
       particles.push({
-        x: Math.random() * W,
-        y: Math.random() * H,
+        x: Math.random() * W, y: Math.random() * H,
         r: Math.random() * 2.4 + 0.6,
         dx: (Math.random() - 0.5) * 0.35,
         dy: (Math.random() - 0.5) * 0.35,
@@ -92,31 +83,23 @@ function initParticles() {
       });
     }
   }
-
   function draw() {
     ctx.clearRect(0, 0, W, H);
     particles.forEach(p => {
-      // 파티클 이동
       p.x += p.dx; p.y += p.dy;
-      if (p.x < 0) p.x = W;
-      if (p.x > W) p.x = 0;
-      if (p.y < 0) p.y = H;
-      if (p.y > H) p.y = 0;
-
-      // 원 그리기
+      if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+      if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(253, 89, 86, ${p.alpha})`;
+      ctx.fillStyle = `rgba(253,89,86,${p.alpha})`;
       ctx.fill();
-
-      // 가까운 파티클끼리 선 연결
       particles.forEach(q => {
         const dist = Math.hypot(p.x - q.x, p.y - q.y);
         if (dist < 90) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(91,127,166,${0.07 * (1 - dist / 90)})`;
+          ctx.strokeStyle = `rgba(91,127,166,${0.07*(1-dist/90)})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -124,15 +107,16 @@ function initParticles() {
     });
     requestAnimationFrame(draw);
   }
-
-  resize();
-  createParticles();
-  draw();
+  resize(); createParticles(); draw();
   window.addEventListener('resize', () => { resize(); createParticles(); });
 }
 
-/* ─── DOM 초기화 ─── */
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* 라이트박스 요소 — DOM 준비 후 참조 */
+  lb        = document.getElementById('lightbox');
+  lbImg     = document.getElementById('lb-img');
+  lbCounter = document.getElementById('lb-counter');
 
   /* 오버레이 바깥 클릭 → 모달 닫기 */
   document.querySelectorAll('.modal-overlay').forEach(overlay => {
@@ -156,20 +140,20 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* 라이트박스 배경 클릭 닫기 */
-  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  if (lb) lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
 
   /* 키보드 조작 */
   document.addEventListener('keydown', e => {
-    if (!lb.classList.contains('open')) return;
+    if (!lb || !lb.classList.contains('open')) return;
     if (e.key === 'ArrowLeft')  lbPrev();
     if (e.key === 'ArrowRight') lbNext();
     if (e.key === 'Escape')     closeLightbox();
   });
 
-  /* 파티클 시작 */
+  /* 파티클 */
   initParticles();
 
-  /* 카운트업 — stat-num이 화면에 보일 때 실행 */
+  /* 카운트업 */
   const statNums = document.querySelectorAll('.stat-num[data-target]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
