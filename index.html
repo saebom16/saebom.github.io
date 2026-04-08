@@ -116,7 +116,7 @@
   </div>
 
   <!-- ═══════════════ 02 CAREER ═══════════════ -->
-  <div class="section" id="career">
+<div class="section" id="career">
     <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Career</h2><div class="section-line"></div></div>
     <div class="career-card">
       <div class="career-top">
@@ -128,7 +128,17 @@
         <li>전시 콘셉트와 일관된 브랜딩 서비스 기획 및 홍보물 제작</li>
         <li>작가 작품 IP 전환을 통한 부가가치 창출 및 굿즈 판매 프로세스 관리</li>
         <li>홍대 투썸 서교점 벽화 일러스트 패턴 디자인 참여</li>
-      </ul></div>
+      </ul>
+      <!-- 홍대 투썸 벽화 서브 카드 -->
+      <div class="career-sub-project" onclick="openModal('twosome')" style="margin-top:16px;padding:16px 20px;background:var(--surface,#f8f8f8);border-radius:12px;border:1px solid rgba(0,0,0,0.08);cursor:pointer;transition:box-shadow .2s,transform .2s;display:flex;align-items:center;gap:16px;">
+        <span style="font-size:26px;">🎨</span>
+        <div style="flex:1;">
+          <div style="font-weight:600;font-size:14px;color:var(--fg,#1a1a1a);">A Twosome Place × 홍대 서교점 벽화 일러스트</div>
+          <div style="font-size:12px;color:var(--muted,#888);margin-top:3px;">패턴 디자인 · 벽화 보조 작업 · 2024</div>
+        </div>
+        <span style="font-size:12px;color:var(--accent,#fd5956);font-weight:500;">자세히 보기 →</span>
+      </div>
+      </div>
     </div>
     <div class="career-card">
       <div class="career-top">
@@ -690,6 +700,20 @@
     allowfullscreen>
  </iframe>
 </div></div></div></div>
+
+<!-- ⑨ 홍대 투썸 벽화 -->
+<div class="modal-overlay" id="modal-twosome">
+  <div class="modal" style="max-width: 1100px; height: 90vh; padding: 0; overflow: hidden; border-radius: 20px;">
+    <div class="modal-close" style="z-index: 9999;">
+      <button onclick="closeModal('twosome')" style="background: rgba(0,0,0,0.5); color: #fff; border-radius: 50%; width: 30px; height: 30px; border: none; cursor: pointer;">✕</button>
+    </div>
+    <div class="modal-inner" style="width: 100%; height: 100%; padding: 0;">
+      <iframe src="홍대 투썸 서교점 벽화 일러스트.html" style="width: 100%; height: 100%; border: none;"
+        title="홍대 투썸 프로젝트 상세">
+      </iframe>
+    </div>
+  </div>
+</div>
 
 <!-- ═══════════════ LIGHTBOX ═══════════════ -->
 <div class="lightbox" id="lightbox">
