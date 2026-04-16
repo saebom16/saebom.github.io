@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>신한카드 자동차케어 & 라이프케어 | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --shin-navy: #001A6E;
+    --auto-accent: #3B82F6;
+    --life-accent: #6366F1;
+    --text-dark: #0D0D1A;
+    --text-mid: #444466;
+    --white: #FFFFFF;
+    --surface: #F7F8FC;
+    --shin-sky: #E8F0FF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Noto Sans KR',sans-serif; background:var(--white); color:var(--text-dark); overflow-x:hidden; }
+
+  /* HERO */
+  .hero {
+    min-height:100vh; background:var(--shin-navy);
+    display:flex; flex-direction:column; justify-content:center;
+    padding:100px 7vw 80px; position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-200px; right:-200px;
+    width:700px; height:700px; border-radius:50%;
+    background:radial-gradient(circle, rgba(0,70,255,0.35) 0%, transparent 70%);
+  }
+  .hero::after {
+    content:''; position:absolute; bottom:-150px; left:-100px;
+    width:500px; height:500px; border-radius:50%;
+    background:radial-gradient(circle, rgba(232,0,28,0.2) 0%, transparent 70%);
+  }
+  .hero-label { font-size:12px; font-weight:500; letter-spacing:3px; color:rgba(255,255,255,0.45); text-transform:uppercase; margin-bottom:24px; animation:fadeUp .8s ease both; }
+  .hero-title { font-weight:900; font-size:clamp(38px,7vw,84px); line-height:1.1; color:#fff; margin-bottom:10px; animation:fadeUp .8s .12s ease both; }
+  .hero-title span { color:#6FA3FF; }
+  .hero-subtitle { font-size:clamp(14px,2vw,18px); color:rgba(255,255,255,0.5); font-weight:300; margin-bottom:48px; animation:fadeUp .8s .22s ease both; }
+  .hero-tags { display:flex; flex-wrap:wrap; gap:10px; animation:fadeUp .8s .32s ease both; }
+  .tag { padding:7px 16px; border-radius:100px; font-size:12px; font-weight:500; }
+  .tag-fill { background:rgba(111,163,255,0.18); color:#9FC3FF; border:1px solid rgba(111,163,255,0.3); }
+  .tag-outline { border:1px solid rgba(255,255,255,0.2); color:rgba(255,255,255,0.65); }
+  .hero-scroll { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; color:rgba(255,255,255,0.3); font-size:10px; letter-spacing:2px; animation:bounce 2s infinite; }
+  .hero-scroll::after { content:''; width:1px; height:40px; background:rgba(255,255,255,0.15); }
+
+  /* SECTION */
+  .section { padding:88px 7vw; }
+  .section-alt { padding:88px 7vw; background:var(--surface); }
+  .sec-header { display:flex; align-items:flex-start; gap:20px; margin-bottom:52px; }
+  .sec-num { font-family:'Bebas Neue',sans-serif; font-size:72px; line-height:1; color:rgba(0,0,0,0.05); flex-shrink:0; margin-top:-10px; }
+  .sec-eyebrow { font-size:11px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:var(--auto-accent); margin-bottom:8px; }
+  .sec-title { font-size:clamp(24px,4vw,38px); font-weight:800; line-height:1.25; color:var(--text-dark); }
+  .sec-title-white { color:#fff; }
+
+  /* OVERVIEW */
+  .overview-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .ov-card { background:var(--white); border-radius:22px; padding:36px 30px; border:1px solid rgba(0,0,0,0.07); position:relative; overflow:hidden; transition:transform .3s, box-shadow .3s; }
+  .ov-card:hover { transform:translateY(-5px); box-shadow:0 24px 48px rgba(0,0,0,0.09); }
+  .ov-card::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--auto-accent),#93C5FD); }
+  .ov-card.life::before { background:linear-gradient(90deg,var(--life-accent),#A5B4FC); }
+  .ov-icon { font-size:32px; margin-bottom:18px; }
+  .ov-name { font-size:12px; font-weight:700; letter-spacing:.5px; color:var(--auto-accent); margin-bottom:12px; }
+  .ov-name.life { color:var(--life-accent); }
+  .ov-desc { font-size:14px; line-height:1.8; color:var(--text-mid); }
+
+  /* ROLE */
+  .role-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .role-item { display:flex; gap:18px; padding:28px 24px; background:var(--white); border-radius:18px; border:1px solid rgba(0,0,0,0.07); transition:border-color .2s, box-shadow .2s; }
+  .role-item:hover { border-color:var(--auto-accent); box-shadow:0 8px 24px rgba(59,130,246,0.1); }
+  .role-icon { width:50px; height:50px; border-radius:14px; background:var(--shin-sky); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; }
+  .role-title { font-size:15px; font-weight:700; color:var(--text-dark); margin-bottom:8px; }
+  .role-desc { font-size:13px; line-height:1.75; color:var(--text-mid); }
+
+  /* SCREENS DARK */
+  .screens-dark { background:var(--shin-navy); padding:88px 7vw; }
+  .screens-dark-life { background:#0C0924; padding:88px 7vw; }
+  .screen-group { margin-bottom:56px; }
+  .screen-group-label { font-size:11px; font-weight:600; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,0.35); margin-bottom:24px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.08); }
+  .screen-row { display:flex; gap:20px; overflow-x:auto; padding-bottom:12px; scrollbar-width:none; }
+  .screen-row::-webkit-scrollbar { display:none; }
+  .screen-item { flex-shrink:0; width:210px; }
+  .screen-img-wrap { width:210px; height:400px; border-radius:18px; overflow:hidden; background:#1a2550; border:1px solid rgba(255,255,255,0.1); margin-bottom:12px; transition:transform .3s, box-shadow .3s; cursor:zoom-in; }
+  .screen-img-wrap:hover { transform:scale(1.04) translateY(-5px); box-shadow:0 24px 48px rgba(0,0,0,0.55); }
+  .screen-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:top; }
+  .screen-caption { font-size:12px; color:rgba(255,255,255,0.4); text-align:center; line-height:1.5; }
+
+  /* AS-IS / TO-BE */
+  .compare-section { padding:88px 7vw; background:#F0F2FA; }
+  .compare-intro-desc { font-size:14px; line-height:1.8; color:var(--text-mid); max-width:620px; margin-top:8px; margin-bottom:52px; }
+  .compare-grid { display:grid; grid-template-columns:1fr auto 1fr; gap:28px; align-items:start; }
+  .compare-side-label { font-size:12px; font-weight:800; letter-spacing:2px; text-transform:uppercase; text-align:center; padding:10px 16px; border-radius:10px; margin-bottom:20px; }
+  .label-asis { background:#FFE5E8; color:#C0001A; }
+  .label-tobe { background:#E0EEFF; color:#0046CC; }
+  .compare-screens { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .compare-img-wrap { border-radius:16px; overflow:hidden; border:2px solid rgba(0,0,0,0.08); transition:transform .3s, box-shadow .3s; cursor:zoom-in; }
+  .compare-img-wrap:hover { transform:scale(1.04); box-shadow:0 16px 40px rgba(0,0,0,0.18); }
+  .compare-img-wrap.asis { border-color:#FFBBBB; }
+  .compare-img-wrap.tobe { border-color:#93C5FD; }
+  .compare-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  /* Responsive image sizes in compare */
+  .asis-wrap { width:140px; height:268px; }
+  .tobe-wrap { width:150px; height:286px; }
+
+  .arrow-col { display:flex; align-items:center; justify-content:center; padding-top:48px; }
+  .arrow-icon { font-size:38px; color:var(--auto-accent); line-height:1; }
+
+  .compare-points { margin-top:24px; display:flex; flex-direction:column; gap:12px; }
+  .cp { display:flex; gap:12px; align-items:flex-start; padding:14px 16px; border-radius:12px; background:var(--white); border:1px solid rgba(0,0,0,0.07); }
+  .cp-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; margin-top:6px; }
+  .dot-red { background:#FF4D5E; }
+  .dot-blue { background:var(--auto-accent); }
+  .cp p { font-size:13px; line-height:1.65; color:var(--text-mid); }
+  .cp p strong { color:var(--text-dark); }
+
+  /* OUTCOME */
+  .outcome-section { background:var(--shin-navy); padding:88px 7vw; }
+  .outcome-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+  .outcome-card { background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:22px; padding:30px 26px; transition:background .2s; }
+  .outcome-card:hover { background:rgba(255,255,255,0.11); }
+  .oc-icon { font-size:28px; margin-bottom:16px; }
+  .oc-title { font-size:15px; font-weight:700; color:#fff; margin-bottom:10px; line-height:1.4; }
+  .oc-desc { font-size:13px; line-height:1.7; color:rgba(255,255,255,0.5); }
+
+  /* LIGHTBOX */
+  .lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; cursor:zoom-out; }
+  .lightbox.open { display:flex; }
+  .lightbox img { max-width:88vw; max-height:90vh; border-radius:12px; object-fit:contain; }
+  .lb-close { position:fixed; top:22px; right:26px; color:#fff; font-size:22px; cursor:pointer; background:rgba(255,255,255,0.15); border-radius:50%; width:42px; height:42px; display:flex; align-items:center; justify-content:center; }
+
+  /* FOOTER */
+  .footer { padding:56px 7vw; background:#060E1F; display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center; }
+  .footer-name { font-size:13px; font-weight:700; color:rgba(255,255,255,0.55); letter-spacing:1px; }
+  .footer-role { font-size:12px; color:rgba(255,255,255,0.28); }
+  .divider { height:1px; background:rgba(0,0,0,0.07); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
+  @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(9px)} }
+  .reveal { opacity:0; transform:translateY(26px); transition:opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity:1; transform:none; }
+
+  @media (max-width:700px) {
+    .overview-grid,.role-grid,.outcome-grid { grid-template-columns:1fr; }
+    .compare-grid { grid-template-columns:1fr; }
+    .arrow-col { display:none; }
+    .screen-item { width:170px; }
+    .screen-img-wrap { height:320px; }
+    .asis-wrap { width:120px; height:228px; }
+    .tobe-wrap { width:130px; height:248px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-label">UX Planning · Service Design · Fintech</p>
+  <h1 class="hero-title">신한카드<br><span>자동차케어</span><br>& 라이프케어</h1>
+  <p class="hero-subtitle">구독형 생활 밀착 금융 서비스 기획 및 전면 고도화</p>
+  <div class="hero-tags">
+    <span class="tag tag-fill">서비스 기획</span>
+    <span class="tag tag-fill">UX 리뉴얼</span>
+    <span class="tag tag-outline">쿠폰 시스템 재설계</span>
+    <span class="tag tag-outline">차계부 신규 기획</span>
+    <span class="tag tag-outline">데이터 개인화</span>
+    <span class="tag tag-outline">Cross-selling</span>
+  </div>
+  <div class="hero-scroll">SCROLL</div>
+</section>
+
+<!-- 01 OVERVIEW -->
+<section class="section-alt">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <div>
+      <p class="sec-eyebrow">Project Overview</p>
+      <h2 class="sec-title">두 개의 구독 서비스,<br>하나의 일상</h2>
+    </div>
+  </div>
+  <div class="overview-grid reveal">
+    <div class="ov-card">
+      <div class="ov-icon">🚗</div>
+      <p class="ov-name">자동차케어</p>
+      <p class="ov-desc">
+        차량 관리를 원스톱으로 지원하는 구독 서비스로 주유, 세차, 경정비 할인 쿠폰과 함께 차량 정보, 시세, 금융 정보를 통합 제공합니다.
+        <br><strong>차계부 신규 기획</strong>과 <strong>쿠폰함 전면 리뉴얼</strong>이 핵심 과제였습니다.</p>
+    </div>
+    <div class="ov-card life">
+      <div class="ov-icon">🛍️</div>
+      <p class="ov-name life">라이프케어</p>
+      <p class="ov-desc">일상 속 쇼핑과 편의 혜택을 담은 구독 서비스로 영화, 마트, 편의점 할인부터 대중교통 사고와 피싱 보상까지 제공합니다. 
+        <br><strong>소비 데이터 기반 마이데이터</strong>와 함께 생활 밀착형 혜택을 통합 설계했습니다.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 02 ROLE -->
+<section class="section">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <div>
+      <p class="sec-eyebrow">My Role</p>
+      <h2 class="sec-title">주요 역할 및<br>담당 업무</h2>
+    </div>
+  </div>
+  <div class="role-grid">
+    <div class="role-item reveal">
+      <div class="role-icon">🧠</div>
+      <div>
+        <p class="role-title">데이터 기반 금융 케어 서비스 모델링</p>
+        <p class="role-desc">사용자의 신용 점수(자동차케어)와 카드 이용 패턴(라이프케어) 데이터를 분석하여 도메인별 특성에 최적화된 개인화 금융 솔루션 비즈니스 로직을 설계했습니다.</p>
+      </div>
+    </div>
+    <div class="role-item reveal">
+      <div class="role-icon">🎟️</div>
+      <div>
+        <p class="role-title">쿠폰 시스템 UX/UI 전면 리뉴얼</p>
+        <p class="role-desc">텍스트 중심 나열식 구조를 혜택 가시성이 극대화된 사용자 중심 UI로 재설계하여 소비 퍼널을 최적화했습니다.</p>
+      </div>
+    </div>
+    <div class="role-item reveal">
+      <div class="role-icon">🔧</div>
+      <div>
+        <p class="role-title">차계부 신규 기획 및 연계 시나리오 구축</p>
+        <p class="role-desc">정비 이력 기록 차계부 모듈을 신설하고 정비 항목과 경정비 쿠폰 혜택을 유기적으로 연결하여 <strong>데이터 기록이 오프라인 소비로 이어지는 선순환 구조</strong>를 설계했습니다.</p>
+      </div>
+    </div>
+    <div class="role-item reveal">
+      <div class="role-icon">🏗️</div>
+      <div>
+        <p class="role-title">플랫폼 확장성 기반 입점 인프라 구축</p>
+        <p class="role-desc">타 카드사 및 다양한 제휴사가 즉시 입점할 수 있도록 표준화된 서비스 연동 규격과 관리 시스템을 구축하여 플랫폼의 범용성을 확보했습니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENS: AUTO CARE -->
+<section class="screens-dark">
+  <div class="reveal">
+    <p class="sec-eyebrow" style="color:rgba(159,195,255,0.7);margin-bottom:10px;">Screen Design</p>
+    <h2 class="sec-title sec-title-white" style="margin-bottom:6px;">🚗 자동차케어 화면 구성</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.38);font-weight:300;margin-bottom:48px;">홈 · 내차 정보 · 시세 · 금융 · 차계부 · 쿠폰함 · 차량부품수리보상</p>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">홈 & 내비게이션</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3769.webp" alt="홈"></div>
+        <p class="screen-caption">홈1</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3769_1.webp" alt="홈"></div>
+        <p class="screen-caption">홈2</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3770.webp" alt="사이드 메뉴"></div>
+        <p class="screen-caption">GNB</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">내차 정보 · 시세 · 금융</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3771.webp" alt="내차 등록"></div>
+        <p class="screen-caption">내차 등록</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3772.webp" alt="내차 상세"></div>
+        <p class="screen-caption">내차 상세<br>소유 · 리콜 정보</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3773.webp" alt="내차 시세"></div>
+        <p class="screen-caption">내차 시세<br>예측 · 유지비</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_3774.webp" alt="내차 금융"></div>
+        <p class="screen-caption">내차 금융<br>저당권 정보</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">차계부 — 신규 기획</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8728.webp" alt="미기록 상태"></div>
+        <p class="screen-caption">정비 기록 전<br>미기록 상태</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8729.webp" alt="날짜 선택"></div>
+        <p class="screen-caption">날짜 입력<br>정비 기록 모달</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8730.webp" alt="점검 현황"></div>
+        <p class="screen-caption">점검 현황<br>항목별 상태</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8731.webp" alt="닉네임 수정"></div>
+        <p class="screen-caption">닉네임 수정<br>인라인 편집</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">차량부품수리보상</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8735.webp" alt="보상 서비스"></div>
+        <p class="screen-caption">보상 서비스</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8736.webp" alt="담보부품 기준"></div>
+        <p class="screen-caption">세부 팝업</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENS: LIFE CARE -->
+<section class="screens-dark-life">
+  <div class="reveal">
+    <p class="sec-eyebrow" style="color:rgba(165,180,252,0.7);margin-bottom:10px;">Screen Design</p>
+    <h2 class="sec-title sec-title-white" style="margin-bottom:6px;">🛍️ 라이프케어 화면 구성</h2>
+    <p style="font-size:14px;color:rgba(255,255,255,0.35);font-weight:300;margin-bottom:48px;">홈 · 소비케어 · 소비분석 · 소비 리포트 · 쿠폰함</p>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">홈 & 쿠폰함</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8743.webp" alt="라이프케어 홈"></div>
+        <p class="screen-caption">홈1<br></p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8744.webp" alt="라이프케어 홈"></div>
+        <p class="screen-caption">홈2<br></p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8753.webp" alt="쿠폰함"></div>
+        <p class="screen-caption">쿠폰함<br>홈플러스 · CU · 다이소</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="screen-group reveal">
+    <p class="screen-group-label">소비케어 & 분석</p>
+    <div class="screen-row">
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8745.webp" alt="카드현황"></div>
+        <p class="screen-caption">카드 현황<br>Main 카드 분석</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8746.webp" alt="소비분석"></div>
+        <p class="screen-caption">소비 분석<br>월별 사용량</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8747.webp" alt="소비 리포트"></div>
+        <p class="screen-caption">소비 리포트<br>체크/신용 비율</p>
+      </div>
+      <div class="screen-item">
+        <div class="screen-img-wrap"><img src="resource/IMG_8748.webp" alt="남은 카드값"></div>
+        <p class="screen-caption">남은 카드값<br>할부 금액 추이</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 AS-IS / TO-BE -->
+<section class="compare-section">
+  <div class="sec-header reveal">
+    <span class="sec-num" style="color:rgba(0,0,0,0.05);">03</span>
+    <div>
+      <p class="sec-eyebrow">UX Redesign</p>
+      <h2 class="sec-title">쿠폰 시스템<br>AS-IS → TO-BE</h2>
+    </div>
+  </div>
+  <p class="compare-intro-desc reveal">텍스트 중심의 나열식 쿠폰 구조를 혜택 가시성이 극대화된 브랜드 카드형 UI로 전면 재설계했습니다. 탐색부터 바코드 제시까지의 동선을 단축하여 실제 소비 전환율을 높였습니다.</p>
+
+  <div class="compare-grid reveal">
+    <!-- AS-IS -->
+    <div>
+      <p class="compare-side-label label-asis">⚠ AS-IS — 기존 구조</p>
+      <div class="compare-screens">
+        <div class="compare-img-wrap asis asis-wrap"><img src="resource/KakaoTalk_20260406_151514706.webp" alt="AS-IS 1"></div>
+        <div class="compare-img-wrap asis asis-wrap"><img src="resource/KakaoTalk_20260406_151514706_01.webp" alt="AS-IS 2"></div>
+      </div>
+      <div class="compare-points">
+        <div class="cp">
+          <div class="cp-dot dot-red"></div>
+          <p><strong>텍스트 나열식 구조</strong> — 쿠폰 목록이 텍스트 리스트로만 표시되어 혜택 가시성이 낮음</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-red"></div>
+          <p><strong>브랜드 식별 불가</strong> — 로고 없이 텍스트로만 제휴사를 표기해 신뢰도와 인지도 저하</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-red"></div>
+          <p><strong>탐색 구조 부재</strong> — 카테고리 없이 전체 목록이 단순 나열, 원하는 쿠폰 찾기 어려움</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-red"></div>
+          <p><strong>사용 흐름 단절</strong> — 쿠폰 선택 후 바코드까지 도달하는 단계가 불명확</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARROW -->
+    <div class="arrow-col"><div class="arrow-icon">→</div></div>
+
+    <!-- TO-BE -->
+    <div>
+      <p class="compare-side-label label-tobe">✓ TO-BE — 리뉴얼 후</p>
+      <div class="compare-screens">
+        <div class="compare-img-wrap tobe tobe-wrap"><img src="resource/KakaoTalk_20260406_151514706_03.webp" alt="TO-BE 1"></div>
+        <div class="compare-img-wrap tobe tobe-wrap"><img src="resource/KakaoTalk_20260406_151514706_04.webp" alt="TO-BE 2"></div>
+      </div>
+      <div class="compare-points">
+        <div class="cp">
+          <div class="cp-dot dot-blue"></div>
+          <p><strong>브랜드 아이콘 탭</strong> — 제휴사 로고를 탭으로 배치, 한눈에 브랜드 식별 가능</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-blue"></div>
+          <p><strong>카드형 레이아웃</strong> — 쿠폰 정보를 카드 UI로 구조화하여 혜택 가시성 극대화</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-blue"></div>
+          <p><strong>즉시 사용 바코드</strong> — 탭 선택 즉시 바코드·유효기간 노출로 소비 전환 마찰 제거</p>
+        </div>
+        <div class="cp">
+          <div class="cp-dot dot-blue"></div>
+          <p><strong>차계부 연계</strong> — 정비 항목과 경정비 쿠폰을 연결, 데이터 기록 → 오프라인 소비 선순환</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 OUTCOME -->
+<section class="outcome-section">
+  <div class="reveal">
+    <p class="sec-eyebrow" style="color:rgba(255,255,255,0.4);margin-bottom:12px;">Results & Impact</p>
+    <h2 class="sec-title sec-title-white" style="margin-bottom:44px;">주요 성과</h2>
+  </div>
+  <div class="outcome-grid">
+    <div class="outcome-card reveal">
+      <div class="oc-icon">🚀</div>
+      <p class="oc-title">플랫폼 비즈니스 확장 및 파트너사 신규 입점 견인</p>
+      <p class="oc-desc">서비스 모델과 운영 지표를 바탕으로 타 카드사들의 신규 입점 제휴를 이끌어내며 플랫폼의 시장 영향력을 확대했습니다.</p>
+    </div>
+    <div class="outcome-card reveal">
+      <div class="oc-icon">📈</div>
+      <p class="oc-title">UX 최적화로 핵심 지표 상승</p>
+      <p class="oc-desc">쿠폰 페이지 리뉴얼 개선 이후 실제 쿠폰 사용률이 크게 증가하였으며 서비스 이용 유지율도 개선되었습니다.</p>
+    </div>
+    <div class="outcome-card reveal">
+      <div class="oc-icon">⚙️</div>
+      <p class="oc-title">운영 효율화 및 사용자 불만 원천 차단</p>
+      <p class="oc-desc">직관적인 UI 개편과 혜택 안내를 통해 쿠폰 관련 CS 문의량을 대폭 감소시키고, 운영 리소스 최적화 및 신뢰도를 제고했습니다.</p>
+    </div>
+    <div class="outcome-card reveal">
+      <div class="oc-icon">🔄</div>
+      <p class="oc-title">도메인 간 시너지로 데이터 선순환 구조 안착</p>
+      <p class="oc-desc">차계부의 정비 기록이 경정비 혜택 소비 전환 모델로 사용자의 참여를 유도하고 서비스 간 유기적 결합 가치를 증명했습니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p class="footer-name">양새봄 · Product Manager</p>
+  <p class="footer-role">신한카드 자동차케어 & 라이프케어 서비스 기획 및 고도화</p>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <div class="lb-close" id="lbClose">✕</div>
+  <img id="lbImg" src="" alt="">
+</div>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold:0.08, rootMargin:'0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Lightbox — click to enlarge any screen image
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  document.querySelectorAll('.screen-img-wrap, .compare-img-wrap').forEach(wrap => {
+    wrap.addEventListener('click', () => {
+      lbImg.src = wrap.querySelector('img').src;
+      lb.classList.add('open');
+    });
+  });
+  document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('open'));
+  lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+</script>
+</body>
+</html>
