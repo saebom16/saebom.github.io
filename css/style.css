@@ -128,7 +128,7 @@ ul.dot li::before{content:'·';position:absolute;left:3px;color:var(--muted);fon
 .modal-overlay.open .modal{transform:translateY(0);}
 .modal::-webkit-scrollbar{width:4px;}
 .modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-.modal-close{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;padding:16px 20px 0;background:var(--cream);}
+.modal-close{position:sticky;top:0;z-index:10;display:flex;justify-content:flex-end;padding:16px 20px 0;}
 .modal-close button{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--white);cursor:pointer;font-size:16px;color:var(--muted);display:flex;align-items:center;justify-content:center;transition:all 0.15s;}
 .modal-close button:hover{background:var(--ink);color:var(--white);border-color:var(--ink);}
 .modal-inner{padding:4px 36px 48px;}
