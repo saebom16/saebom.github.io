@@ -38,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;height:52px;background:rgba(250,248,244,
 .hero-bg-ring{position:absolute;right:140px;top:-10px;width:90px;height:90px;border-radius:50%;border:1.5px dashed var(--muted);opacity:0.35;pointer-events:none;}
 .hero-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:10px;}
 .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent);}
-.hero h1{font-family:'noto sans';font-size:52px;font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:14px;}
+.hero h1{font-family:'Gmarket Sans';font-size:52px;font-weight:600;line-height:1.3;letter-spacing:-1.5px;margin-bottom:14px;}
 .hero h1 em{font-style:normal;color:var(--accent);}
 .hero-desc{font-size:15px;color:var(--ink-light);max-width:600px;margin-bottom:32px;line-height:1.85;}
 .hero-profile{position:relative;z-index:10;margin-top:24px;}
